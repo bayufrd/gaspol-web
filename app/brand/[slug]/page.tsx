@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import BrandDocPanel, { type BrandDocTopic } from "@/components/BrandDocPanel";
 import TopActions from "@/components/TopActions";
+import SambelColekSummary from "@/components/brand/SambelColekSummary";
 
 type BrandKey = "sambelcolek" | "sambelenyahti" | "greenbeans" | "jempolan";
 
@@ -315,172 +316,8 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
               </div>
             </div>
             <div className="lg:col-span-8 space-y-6">
-              {isSambelColek ? (
-                <>
-                  <section
-                    id="overview"
-                    className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
-                  >
-                    <div className="flex items-start justify-between gap-6">
-                      <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">Overview</h2>
-                      <span className="material-symbols-outlined text-secondary">restaurant_menu</span>
-                    </div>
-                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      {[
-                        { icon: "local_fire_department", title: "Pedas", desc: "Fokus pada pengalaman pecinta pedas." },
-                        { icon: "workspace_premium", title: "Rasa Khas", desc: "Sambal sebagai signature rasa." },
-                        { icon: "storefront", title: "Nyaman", desc: "Tradisional bertemu kenyamanan modern." }
-                      ].map((x) => (
-                        <div key={x.title} className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
-                          <div className="flex items-center gap-2 text-on-surface dark:text-white">
-                            <span className="material-symbols-outlined text-secondary">{x.icon}</span>
-                            <span className="font-headline font-black text-xs tracking-widest uppercase">{x.title}</span>
-                          </div>
-                          <div className="text-on-surface-variant dark:text-gray-300 mt-3 text-sm leading-relaxed">{x.desc}</div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-6 rounded-3xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-8">
-                      <div className="flex items-start gap-4">
-                        <div className="h-12 w-12 rounded-2xl bg-gradient-to-r from-secondary-container via-secondary-fixed-dim to-secondary grid place-items-center text-white">
-                          <span className="material-symbols-outlined">format_quote</span>
-                        </div>
-                        <div className="text-on-surface dark:text-white font-display text-2xl sm:text-3xl font-black tracking-tight leading-snug">
-                          Sambal bukan sekadar pelengkap, melainkan jiwa dari setiap hidangan.
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-
-                  <section
-                    id="quality"
-                    className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
-                  >
-                    <div className="flex items-start justify-between gap-6">
-                      <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">Quality</h2>
-                      <span className="material-symbols-outlined text-secondary">verified</span>
-                    </div>
-                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      {[
-                        { icon: "eco", title: "Bahan Segar", desc: "Standar bahan yang dipilih dan dijaga." },
-                        { icon: "sanitize", title: "Higienis", desc: "Proses olah yang bersih dan rapi." },
-                        { icon: "star", title: "Konsisten", desc: "Kualitas rasa yang stabil." }
-                      ].map((x) => (
-                        <div key={x.title} className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
-                          <div className="flex items-center gap-2 text-on-surface dark:text-white">
-                            <span className="material-symbols-outlined text-secondary">{x.icon}</span>
-                            <span className="font-headline font-black text-xs tracking-widest uppercase">{x.title}</span>
-                          </div>
-                          <div className="text-on-surface-variant dark:text-gray-300 mt-3 text-sm leading-relaxed">{x.desc}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </section>
-
-                  <section
-                    id="audience"
-                    className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
-                  >
-                    <div className="flex items-start justify-between gap-6">
-                      <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">Audience</h2>
-                      <span className="material-symbols-outlined text-secondary">groups</span>
-                    </div>
-                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      {[
-                        { icon: "school", title: "Mahasiswa", desc: "Tempat nyaman dengan harga yang ramah." },
-                        { icon: "work", title: "Pekerja", desc: "Solusi makan praktis di sela aktivitas." },
-                        { icon: "family_restroom", title: "Keluarga", desc: "Ruang makan bersama yang santai." }
-                      ].map((x) => (
-                        <div key={x.title} className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
-                          <div className="flex items-center gap-2 text-on-surface dark:text-white">
-                            <span className="material-symbols-outlined text-secondary">{x.icon}</span>
-                            <span className="font-headline font-black text-xs tracking-widest uppercase">{x.title}</span>
-                          </div>
-                          <div className="text-on-surface-variant dark:text-gray-300 mt-3 text-sm leading-relaxed">{x.desc}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </section>
-
-                  <section
-                    id="asik"
-                    className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
-                  >
-                    <div className="flex items-start justify-between gap-6">
-                      <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">ASIK</h2>
-                      <span className="material-symbols-outlined text-secondary">account_tree</span>
-                    </div>
-                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {[
-                        { icon: "handshake", title: "Amanah", desc: "Dipercaya, menjaga kualitas layanan." },
-                        { icon: "account_tree", title: "Sistematis & adaptif", desc: "Operasional jelas, siap berubah." },
-                        { icon: "verified_user", title: "Integritas", desc: "Tegas, bertanggung jawab, konsisten." },
-                        { icon: "groups", title: "Kolaboratif", desc: "Kerja sama sinergis lintas tim." }
-                      ].map((x) => (
-                        <div key={x.title} className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
-                          <div className="flex items-center gap-3">
-                            <div className="h-12 w-12 rounded-2xl bg-gradient-to-r from-primary-container via-primary to-secondary grid place-items-center text-white">
-                              <span className="material-symbols-outlined">{x.icon}</span>
-                            </div>
-                            <div>
-                              <div className="font-display text-xl font-black tracking-tight">{x.title}</div>
-                              <div className="text-on-surface-variant dark:text-gray-300 mt-1 text-sm leading-relaxed">{x.desc}</div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </section>
-
-                  <section
-                    id="values"
-                    className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
-                  >
-                    <div className="flex items-start justify-between gap-6">
-                      <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">Values</h2>
-                      <span className="material-symbols-outlined text-secondary">checklist</span>
-                    </div>
-                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
-                        <div className="font-headline font-black text-xs tracking-widest uppercase text-on-surface dark:text-white">
-                          Kepribadian
-                        </div>
-                        <ul className="mt-4 space-y-2 text-on-surface-variant dark:text-gray-300">
-                          {["Jujur", "Disiplin", "Tanggung Jawab", "Ikhlas", "Taqwa"].map((x) => (
-                            <li key={x} className="flex items-start gap-2">
-                              <span className="material-symbols-outlined text-secondary text-[18px] mt-[2px]">check_circle</span>
-                              <span>{x}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
-                        <div className="font-headline font-black text-xs tracking-widest uppercase text-on-surface dark:text-white">
-                          Prinsip Kerja
-                        </div>
-                        <ul className="mt-4 space-y-2 text-on-surface-variant dark:text-gray-300">
-                          {["Cepat", "Sigap", "Cermat", "Rapi", "Santun", "Ceria"].map((x) => (
-                            <li key={x} className="flex items-start gap-2">
-                              <span className="material-symbols-outlined text-secondary text-[18px] mt-[2px]">check_circle</span>
-                              <span>{x}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="sm:col-span-2 rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 flex items-center justify-between gap-6 flex-col sm:flex-row">
-                        <div>
-                          <div className="font-display text-2xl font-black tracking-tight text-on-surface dark:text-white">
-                            Brand Assets
-                          </div>
-                          <div className="text-on-surface-variant dark:text-gray-300 mt-2">Logo</div>
-                        </div>
-                        <div className="inline-flex items-center gap-4 bg-white rounded-2xl px-5 py-3 border border-outline-variant/25 shadow-sm">
-                          <Image src={brand.logo} alt={`${brand.name} logo`} width={96} height={96} className="h-16 w-16 object-contain" />
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                </>
+              {isSambelColek && brand.docTopics?.length ? (
+                <SambelColekSummary logoSrc={brand.logo} docTopics={brand.docTopics} />
               ) : (
                 (brand.sections ?? []).map((s) => (
                   <section
@@ -501,10 +338,6 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
             </div>
           </div>
         </section>
-
-        {isSambelColek && brand.docTopics?.length ? (
-          <BrandDocPanel title="Profil Brand" desc="Buka setiap bagian untuk melihat sesuai dokumen." topics={brand.docTopics} />
-        ) : null}
       </main>
     </>
   );

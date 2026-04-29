@@ -148,7 +148,7 @@ const copy = {
     footerCorporate: "Menu",
     footerConnect: "Koneksi",
     footerLinksCorporate: ["Brand", "Tentang", "Visi & Misi", "Kontak"],
-    copyright: "© 2024 GASPOLL MANAGEMENT CENTER. All rights reserved.",
+    copyright: "© 2026 GASPOLL MANAGEMENT CENTER. All rights reserved.",
     langLabel: "ID"
   },
   en: {
@@ -261,7 +261,7 @@ const copy = {
     footerCorporate: "Menu",
     footerConnect: "Connect",
     footerLinksCorporate: ["Brands", "About", "Vision", "Connect"],
-    copyright: "© 2024 GASPOLL MANAGEMENT CENTER. All rights reserved.",
+    copyright: "© 2026 GASPOLL MANAGEMENT CENTER. All rights reserved.",
     langLabel: "EN"
   }
 } satisfies Record<Lang, any>;
@@ -341,7 +341,11 @@ const brandsByLang: Record<
 };
 
 export default function Page() {
-  const [lang, setLang] = useState<Lang>("id");
+  const [lang, setLang] = useState<Lang>(() => {
+    if (typeof window === "undefined") return "id";
+    const saved = (localStorage.getItem("lang") as Lang | null) ?? "id";
+    return saved === "en" ? "en" : "id";
+  });
   const t = useMemo(() => copy[lang], [lang]);
   const brands = useMemo(() => brandsByLang[lang], [lang]);
   const [topicKey, setTopicKey] = useState<string | null>(null);
@@ -396,7 +400,13 @@ export default function Page() {
             </button>
             <button
               type="button"
-              onClick={() => setLang((v) => (v === "id" ? "en" : "id"))}
+              onClick={() =>
+                setLang((v) => {
+                  const next = v === "id" ? "en" : "id";
+                  localStorage.setItem("lang", next);
+                  return next;
+                })
+              }
               className="h-10 px-4 rounded-full border border-outline-variant/40 bg-white/60 dark:bg-[#272626]/60 backdrop-blur hover:bg-white/80 dark:hover:bg-[#272626]/80 transition-colors text-xs font-headline font-black tracking-widest"
               aria-label="Toggle language"
               title="Toggle language"
@@ -428,7 +438,13 @@ export default function Page() {
             </a>
             <button
               type="button"
-              onClick={() => setLang((v) => (v === "id" ? "en" : "id"))}
+              onClick={() =>
+                setLang((v) => {
+                  const next = v === "id" ? "en" : "id";
+                  localStorage.setItem("lang", next);
+                  return next;
+                })
+              }
               className="h-10 px-4 rounded-full border border-outline-variant/40 bg-white/60 dark:bg-[#272626]/60 backdrop-blur hover:bg-white/80 dark:hover:bg-[#272626]/80 transition-colors text-xs font-headline font-black tracking-widest"
               aria-label="Toggle language"
               title="Toggle language"

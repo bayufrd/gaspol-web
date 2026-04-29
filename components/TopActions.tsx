@@ -1,25 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
-
-type Lang = "id" | "en";
+import { useLang } from "@/components/useLang";
 
 export default function TopActions() {
-  const [lang, setLang] = useState<Lang>("id");
-
-  useEffect(() => {
-    const saved = (localStorage.getItem("lang") as Lang | null) ?? "id";
-    setLang(saved === "en" ? "en" : "id");
-  }, []);
-
-  const toggleLang = () => {
-    setLang((prev) => {
-      const next: Lang = prev === "id" ? "en" : "id";
-      localStorage.setItem("lang", next);
-      return next;
-    });
-  };
+  const { lang, toggleLang } = useLang("id");
 
   return (
     <div className="flex items-center gap-2">
@@ -36,4 +21,3 @@ export default function TopActions() {
     </div>
   );
 }
-
