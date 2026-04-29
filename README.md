@@ -85,6 +85,10 @@ Menjadi perusahaan bidang Manajemen Bisnis yang terus berkembang dan maju, mense
 - Dark: `example-dark.html`
 - Mobile: `example-mobile.html` *(file masih kosong)*
 
+## Asset Icons
+
+- Icon PT GMC & brand ada di folder `icon/` *(sesuaikan jika folder ini nantinya diganti menjadi `icons/`)*
+
 ## Design System (Palette & Typography)
 
 ### Color Palette (utama)
