@@ -362,14 +362,16 @@ export default function Page() {
       <nav className="bg-white/80 dark:bg-[#272626]/80 backdrop-blur-lg fixed top-0 w-full z-50 shadow-sm dark:shadow-none bg-surface-container-low">
         <div className="flex justify-between items-center px-4 sm:px-8 py-4 max-w-full mx-auto">
           <div className="flex items-center gap-4">
-            <Image
-              src="/icon/Gaspoll.png"
-              alt="GASPOLL Logo"
-              width={140}
-              height={32}
-              className="h-8 w-auto"
-              priority
-            />
+            <div className="dark:bg-white dark:rounded-xl dark:px-3 dark:py-2 dark:shadow-sm">
+              <Image
+                src="/icon/Gaspoll.png"
+                alt="GASPOLL Logo"
+                width={140}
+                height={32}
+                className="h-8 w-auto"
+                priority
+              />
+            </div>
           </div>
           <div className="hidden lg:flex items-center gap-12 text-sm font-headline uppercase tracking-tight">
             <a className="text-secondary font-bold border-b-2 border-secondary pb-1" href="#brands">
