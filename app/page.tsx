@@ -268,10 +268,11 @@ const copy = {
 
 const brandsByLang: Record<
   Lang,
-  Array<{ name: string; tagline: string; desc: string; icon: string; meta: string }>
+  Array<{ slug: string; name: string; tagline: string; desc: string; icon: string; meta: string }>
 > = {
   id: [
     {
+      slug: "sambel-colek",
       name: "Sambel Colek Asli Ngampel City",
       tagline: "Murah, Kenyang, Pedas, Puas",
       desc: "Rumah makan pecinta pedas: sambal sebagai “jiwa” hidangan, bahan segar pilihan, proses bersih, dan pengalaman makan yang ramah untuk mahasiswa hingga keluarga.",
@@ -279,6 +280,7 @@ const brandsByLang: Record<
       meta: "Kuliner Pedas"
     },
     {
+      slug: "sambel-e-nyahti",
       name: "Sambel'e Nyah Ti",
       tagline: "JUwara PueDEZnya",
       desc: "Rumah makan pecinta pedas: tradisional + modern, kualitas rasa konsisten, dan pelayanan ramah.",
@@ -286,6 +288,7 @@ const brandsByLang: Record<
       meta: "Kuliner"
     },
     {
+      slug: "jempolan",
       name: "Jempolan Coffee & Eatery",
       tagline: "Coffee & Eatery",
       desc: "Coffee & eatery di bawah GMC (ringkasan detail menyusul mengikuti dokumen resmi Jempolan).",
@@ -293,6 +296,7 @@ const brandsByLang: Record<
       meta: "Coffee & Eatery"
     },
     {
+      slug: "green-beans",
       name: "Green Beans",
       tagline: "Sip – Relax - Repeat",
       desc: "Coffee shop & ruang komunal: biji berkualitas, seduh presisi, dan atmosfer untuk kerja/komunitas.",
@@ -302,6 +306,7 @@ const brandsByLang: Record<
   ],
   en: [
     {
+      slug: "sambel-colek",
       name: "Sambel Colek Asli Ngampel City",
       tagline: "Affordable, Filling, Spicy, Satisfying",
       desc: "Spicy dining concept where sambal is the “soul” of every dish, built on fresh ingredients, strong hygiene, and a friendly dining space for everyone.",
@@ -309,6 +314,7 @@ const brandsByLang: Record<
       meta: "Culinary"
     },
     {
+      slug: "sambel-e-nyahti",
       name: "Sambel'e Nyah Ti",
       tagline: "Champion of Bold Spicy Taste",
       desc: "Spicy dining concept combining tradition and modern comfort with consistent quality.",
@@ -316,6 +322,7 @@ const brandsByLang: Record<
       meta: "Culinary"
     },
     {
+      slug: "jempolan",
       name: "Jempolan Coffee & Eatery",
       tagline: "Coffee & Eatery",
       desc: "A GMC-managed coffee & eatery (full details will follow the official Jempolan document).",
@@ -323,6 +330,7 @@ const brandsByLang: Record<
       meta: "Coffee & Eatery"
     },
     {
+      slug: "green-beans",
       name: "Green Beans",
       tagline: "Sip – Relax - Repeat",
       desc: "Coffee shop and community space with consistent craft and experience.",
@@ -576,7 +584,7 @@ export default function Page() {
                   {b.desc}
                 </p>
                 <a
-                  href="#brands"
+                  href={`/brand/${b.slug}`}
                   className="mt-8 w-full bg-gradient-to-r from-white to-surface-container-low dark:from-white/10 dark:to-white/5 text-on-surface dark:text-white px-6 py-4 rounded-full font-headline font-black text-xs uppercase tracking-widest hover:opacity-95 transition-opacity border border-outline-variant/30 dark:border-white/10 mt-auto text-center"
                 >
                   {t.cardBtn}
