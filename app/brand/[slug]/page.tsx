@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BrandDocPanel, { type BrandDocTopic } from "@/components/BrandDocPanel";
+import TopActions from "@/components/TopActions";
 
 type BrandKey = "sambelcolek" | "sambelenyahti" | "greenbeans" | "jempolan";
 
@@ -231,6 +232,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
               {brand.name}
             </span>
           </div>
+          <TopActions />
         </div>
       </nav>
 
