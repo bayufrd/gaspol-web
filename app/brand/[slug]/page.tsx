@@ -26,38 +26,56 @@ const BRAND_BY_SLUG: Record<
       {
         title: "Tentang Rumah Makan Sambel Colek",
         paragraphs: [
-          "Berawal dari kecintaan terhadap kekayaan kuliner Nusantara, Rumah Makan Sambel Colek hadir sebagai oase bagi para pecinta pedas.",
-          "Kami percaya bahwa sambal bukan sekadar pelengkap, melainkan jiwa dari setiap hidangan.",
-          "Dengan semangat menyajikan keaslian rasa tradisional yang dipadukan dengan kenyamanan modern, kami berkomitmen untuk menghadirkan pengalaman bersantap yang tak terlupakan bagi setiap pengunjung."
+          "I. Filosofi Rasa Khas Sambel Colek",
+          "Berawal dari kecintaan terhadap kekayaan kuliner Nusantara, Rumah Makan Sambel Colek hadir sebagai oase bagi para pecinta pedas. Kami percaya bahwa sambal bukan sekadar pelengkap, melainkan jiwa dari setiap hidangan. Dengan semangat menyajikan keaslian rasa tradisional yang dipadukan dengan kenyamanan modern, kami berkomitmen untuk menghadirkan pengalaman bersantap yang tak terlupakan bagi setiap pengunjung."
         ]
       },
       {
         title: "Kualitas yang Tidak Berkompromi",
         paragraphs: [
-          "Di Sambel Colek, setiap ulekan sambal adalah sebuah dedikasi.",
-          "Kami hanya menggunakan bahan-bahan segar pilihan untuk memastikan setiap \"colekan\" memberikan ledakan rasa yang pas.",
-          "Setiap menu yang kami hidangkan diolah dengan standar kebersihan dan kualitas rasa yang tinggi."
+          "II. Kualitas yang Tidak Berkompromi",
+          "Di Sambel Colek, setiap ulekan sambal adalah sebuah dedikasi. Kami hanya menggunakan bahan-bahan segar pilihan untuk memastikan setiap \"colekan\" memberikan ledakan rasa yang pas. Setiap menu yang kami hidangkan diolah dengan standar kebersihan dan kualitas rasa yang tinggi."
         ]
       },
       {
         title: "Lebih dari Sekedar Tempat Makan",
         paragraphs: [
-          "Kami memahami bahwa makan adalah momen untuk berbagi.",
-          "Itulah mengapa Rumah Makan Sambel Colek dirancang untuk menjadi tempat yang ramah bagi siapa saja, mulai dari mahasiswa yang mencari kenyamanan dan harga terjangkau, hingga keluarga yang ingin menikmati makan siang santai di akhir pekan."
+          "III. Lebih dari Sekedar Tempat Makan",
+          "Kami memahami bahwa makan adalah momen untuk berbagi. Itulah mengapa Rumah Makan Sambel Colek dirancang untuk menjadi tempat yang ramah bagi siapa saja, mulai dari mahasiswa yang mencari kenyamanan dan harga terjangkau, hingga keluarga yang ingin menikmati makan siang santai di akhir pekan."
         ]
       },
       {
         title: "Visi & Misi (ASIK)",
         paragraphs: [
-          "Visi: Menjadi perusahaan bidang F&B yang terus berkembang dan maju, mensejahterakan orang-orang yang mendukung dalam mengembangkan perusahaan, serta dapat memberikan manfaat bagi masyarakat.",
-          "Misi: “A S I K” — Amanah; Sistematis dan adaptif; Integritas; Kolaboratif."
+          "IV. Visi & Misi Kami",
+          "Visi:",
+          "Menjadi perusahaan bidang F&B yang terus berkembang dan maju, mensejahterakan orang-orang yang mendukung dalam mengembangkan perusahaan, serta dapat memberikan manfaat bagi masyarakat.",
+          "Misi:",
+          "“A S I K”",
+          "▪ Amanah; Dapat dipercaya dan menjunjung tinggi nilai-nilai kepercayaan; *Produk dan Layanannya.",
+          "▪ Sistematis dan adaptif; Menjaga sistem operasi kerja yang baik dan jelas, serta siap menghadapi perubahan dengan inovasi; *Sistem operasi kerjanya.",
+          "▪ Integritas; Tegas berkarakter, bertanggung jawab, dan menjaga konsistensi; *Sumber Daya Manusianya.",
+          "▪ Kolaboratif; Membangun dan menjaga sistem kerja sama yang sinergis. *Pengembangannya."
         ]
       },
       {
         title: "Nilai-nilai Perusahaan",
         paragraphs: [
-          "Landasan Dasar Kepribadian Karyawan: Jujur, Disiplin, Tanggung Jawab, Ikhlas, Taqwa.",
-          "Prinsip Dasar Bekerja Karyawan: Cepat, Sigap, Cermat, Rapi, Santun, Ceria."
+          "V. Nilai – nilai Perusahaan",
+          "1. Landasan Dasar Kepribadian Karyawan:",
+          "▪ Jujur",
+          "▪ Disiplin",
+          "▪ Tanggung Jawab",
+          "▪ Ikhlas",
+          "▪ Taqwa",
+          "2. Prinsip Dasar Bekerja Karyawan:",
+          "▪ Cepat",
+          "▪ Sigap",
+          "▪ Cermat",
+          "▪ Rapi",
+          "▪ Santun",
+          "▪ Ceria",
+          "VI. Logo Perusahaan"
         ]
       }
     ]
@@ -284,4 +302,3 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
     </>
   );
 }
-
