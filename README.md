@@ -4,13 +4,13 @@ Dokumentasi ringkas untuk pembuatan landing page PT Gaspoll Management Center (G
 
 ## Sumber Dokumen
 
-- `SEKILAS TENTANG GASPOLL MANAGEMENT CENTER.pdf`
-- `Gaspoll Management Center.txt`
+- `docs/SEKILAS TENTANG GASPOLL MANAGEMENT CENTER.pdf`
+- `docs/Gaspoll Management Center.txt`
 - Brand docs:
-  - `SEKILAS TENTANG GREEN BEANS.pdf` / `Green Beans.txt`
-  - `SEKILAS TENTANG SAMBEL COLEK.pdf` / `Sambel Colek.txt`
-  - `SEKILAS TENTANG JEMPOLAN.pdf` / `Jempolan.txt` *(catatan: isi `.txt` saat ini sama dengan Sambel Colek)*
-  - `SEKILAS TENTANG SAMBEL'E NYAH TI.pdf` / `Sambel'e Nyahti.txt`
+  - `docs/SEKILAS TENTANG GREEN BEANS.pdf` / `docs/Green Beans.txt`
+  - `docs/SEKILAS TENTANG SAMBEL COLEK.pdf` / `docs/Sambel Colek.txt`
+  - `docs/SEKILAS TENTANG JEMPOLAN.pdf` / `docs/Jempolan.txt` *(catatan: isi `.txt` saat ini sama dengan Sambel Colek)*
+  - `docs/SEKILAS TENTANG SAMBEL'E NYAH TI.pdf` / `docs/Sambel'e Nyahti.txt`
 
 ## Sekilas PT Gaspoll Management Center (GMC)
 
@@ -81,9 +81,9 @@ Menjadi perusahaan bidang Manajemen Bisnis yang terus berkembang dan maju, mense
 
 ## UI References (Layout & Contoh)
 
-- Light: `example.html`
-- Dark: `example-dark.html`
-- Mobile: `example-mobile.html` *(file masih kosong)*
+- Light: `docs/example.html`
+- Dark: `docs/example-dark.html`
+- Mobile: `docs/example-mobile.html` *(file masih kosong)*
 
 ## Asset Icons
 
