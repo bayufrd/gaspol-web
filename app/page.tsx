@@ -375,13 +375,13 @@ export default function Page() {
             <a className="text-secondary font-bold border-b-2 border-secondary pb-1" href="#brands">
               {t.nav.brands}
             </a>
-            <a className="text-on-surface-variant hover:text-on-surface transition-colors" href="#about">
+            <a className="text-on-surface-variant dark:text-gray-300 hover:text-on-surface dark:hover:text-white transition-colors" href="#about">
               {t.nav.about}
             </a>
-            <a className="text-on-surface-variant hover:text-on-surface transition-colors" href="#vision">
+            <a className="text-on-surface-variant dark:text-gray-300 hover:text-on-surface dark:hover:text-white transition-colors" href="#vision">
               {t.nav.vision}
             </a>
-            <a className="text-on-surface-variant hover:text-on-surface transition-colors" href="#connect">
+            <a className="text-on-surface-variant dark:text-gray-300 hover:text-on-surface dark:hover:text-white transition-colors" href="#connect">
               {t.nav.connect}
             </a>
           </div>
@@ -422,11 +422,11 @@ export default function Page() {
                 <span className="bg-gradient-to-r from-secondary-container via-secondary to-primary-container bg-clip-text text-transparent">
                   {t.heroTitle2}
                 </span>{" "}
-                <span className="bg-gradient-to-r from-on-surface via-on-surface to-on-surface-variant bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-on-surface via-on-surface to-on-surface-variant dark:from-white dark:via-white dark:to-gray-300 bg-clip-text text-transparent">
                   {t.heroTitle3}
                 </span>
               </h1>
-              <p className="text-on-surface-variant text-lg leading-relaxed mt-8 max-w-xl">
+              <p className="text-on-surface-variant dark:text-gray-300 text-lg leading-relaxed mt-8 max-w-xl">
                 {t.heroDesc}
               </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -486,7 +486,7 @@ export default function Page() {
                 {t.portfolioTitle}
               </h2>
             </div>
-            <div className="hidden md:block text-on-surface-variant max-w-md">
+            <div className="hidden md:block text-on-surface-variant dark:text-gray-300 max-w-md">
               {t.portfolioDesc}
             </div>
           </div>
@@ -495,7 +495,7 @@ export default function Page() {
             {brands.map((b) => (
               <div
                 key={b.name}
-                className="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-8 hover:shadow-xl transition-shadow flex flex-col"
+                className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 hover:shadow-xl transition-shadow flex flex-col"
               >
                 <div className="flex items-center justify-between">
                   <div className="h-14 w-14 rounded-2xl bg-white border border-outline-variant/25 grid place-items-center overflow-hidden">
@@ -507,22 +507,22 @@ export default function Page() {
                       className="h-10 w-10 object-contain"
                     />
                   </div>
-                  <span className="text-[10px] tracking-[0.25em] uppercase text-on-surface-variant font-headline">
+                  <span className="text-[10px] tracking-[0.25em] uppercase text-on-surface-variant dark:text-gray-300 font-headline">
                     {b.meta}
                   </span>
                 </div>
                 <h3 className="font-display text-2xl font-black tracking-tight mt-6 leading-tight break-words min-h-[3.25rem]">
                   {b.name}
                 </h3>
-                <div className="text-xs tracking-widest uppercase text-on-surface-variant font-headline mt-2">
+                <div className="text-xs tracking-widest uppercase text-on-surface-variant dark:text-gray-300 font-headline mt-2">
                   “{b.tagline}”
                 </div>
-                <p className="text-on-surface-variant text-sm leading-relaxed mt-3 flex-1">
+                <p className="text-on-surface-variant dark:text-gray-300 text-sm leading-relaxed mt-3 flex-1">
                   {b.desc}
                 </p>
                 <a
                   href="#brands"
-                  className="mt-8 w-full bg-gradient-to-r from-white to-surface-container-low text-on-surface px-6 py-4 rounded-full font-headline font-black text-xs uppercase tracking-widest hover:opacity-95 transition-opacity border border-outline-variant/30 mt-auto text-center"
+                  className="mt-8 w-full bg-gradient-to-r from-white to-surface-container-low dark:from-white/10 dark:to-white/5 text-on-surface dark:text-white px-6 py-4 rounded-full font-headline font-black text-xs uppercase tracking-widest hover:opacity-95 transition-opacity border border-outline-variant/30 dark:border-white/10 mt-auto text-center"
                 >
                   {t.cardBtn}
                 </a>
@@ -532,7 +532,7 @@ export default function Page() {
         </section>
 
         <section id="about" className="px-4 sm:px-8 lg:px-24 py-20 sm:py-24">
-          <div className="bg-surface-container-low rounded-3xl p-12 lg:p-16 border border-outline-variant/30">
+          <div className="bg-surface-container-low dark:bg-[#1c1c1c] rounded-3xl p-12 lg:p-16 border border-outline-variant/30 dark:border-white/10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
                 <div className="text-xs font-display tracking-widest text-on-surface-variant uppercase">
@@ -541,13 +541,16 @@ export default function Page() {
                 <h2 className="font-display text-5xl font-black tracking-tighter mt-4">
                   {t.aboutTitle}
                 </h2>
-                <p className="text-on-surface-variant text-base leading-relaxed mt-6">
+                <p className="text-on-surface-variant dark:text-gray-300 text-base leading-relaxed mt-6">
                   {t.aboutDesc}
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-6">
                 {t.stats.map((x: { k: string; v: string }) => (
-                  <div key={x.k} className="bg-white rounded-2xl p-6 border border-outline-variant/25">
+                  <div
+                    key={x.k}
+                    className="bg-white dark:bg-white/5 rounded-2xl p-6 border border-outline-variant/25 dark:border-white/10"
+                  >
                     <div className="text-xs uppercase tracking-widest text-on-surface-variant font-headline">
                       {x.k}
                     </div>
@@ -560,7 +563,7 @@ export default function Page() {
         </section>
 
         <section className="px-4 sm:px-8 lg:px-24 -mt-10 pb-20 sm:pb-24">
-          <div className="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-8 sm:p-10">
+          <div className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
               <div className="lg:col-span-4">
                 <div className="text-xs font-display tracking-widest text-on-surface-variant uppercase">
@@ -569,7 +572,7 @@ export default function Page() {
                 <h3 className="font-display text-3xl sm:text-4xl font-black tracking-tight mt-3">
                   {t.moreTitle}
                 </h3>
-                <p className="text-on-surface-variant mt-5 leading-relaxed">{t.moreDesc}</p>
+                <p className="text-on-surface-variant dark:text-gray-300 mt-5 leading-relaxed">{t.moreDesc}</p>
               </div>
               <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {t.topics.map((topic: any) => (
@@ -577,12 +580,12 @@ export default function Page() {
                     key={topic.key}
                     type="button"
                     onClick={() => setTopicKey(topic.key)}
-                    className="text-left bg-white/80 dark:bg-white/5 border border-outline-variant/25 rounded-2xl p-5 hover:shadow-lg transition-shadow"
+                    className="text-left bg-white/80 dark:bg-white/5 border border-outline-variant/25 dark:border-white/10 rounded-2xl p-5 hover:shadow-lg transition-shadow"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <div className="font-display text-xl font-black tracking-tight">{topic.title}</div>
-                        <div className="text-xs tracking-widest uppercase text-on-surface-variant font-headline mt-2">
+                        <div className="text-xs tracking-widest uppercase text-on-surface-variant dark:text-gray-300 font-headline mt-2">
                           {t.moreBtn}
                         </div>
                       </div>
@@ -604,7 +607,7 @@ export default function Page() {
               <h2 className="font-display text-5xl font-black tracking-tighter mt-4">
                 {t.vmTitle}
               </h2>
-              <p className="text-on-surface-variant mt-6 leading-relaxed">
+              <p className="text-on-surface-variant dark:text-gray-300 mt-6 leading-relaxed">
                 {t.vmDesc}
               </p>
             </div>
@@ -612,10 +615,10 @@ export default function Page() {
               {t.vmCards.map((x: { t: string; d: string }) => (
                 <div
                   key={x.t}
-                  className="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-8"
+                  className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8"
                 >
                   <div className="font-display text-2xl font-black tracking-tight">{x.t}</div>
-                  <div className="text-on-surface-variant text-sm leading-relaxed mt-3">{x.d}</div>
+                  <div className="text-on-surface-variant dark:text-gray-300 text-sm leading-relaxed mt-3">{x.d}</div>
                 </div>
               ))}
             </div>
@@ -646,7 +649,7 @@ export default function Page() {
         </section>
 
         <section className="px-4 sm:px-8 lg:px-24 pb-20 sm:pb-28 -mt-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-surface-container-low border border-outline-variant/30 rounded-3xl p-8 sm:p-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10">
             <div className="lg:col-span-5">
               <div className="text-xs font-display tracking-widest text-on-surface-variant uppercase">
                 {t.officeKicker}
@@ -654,8 +657,8 @@ export default function Page() {
               <h3 className="font-display text-3xl sm:text-4xl font-black tracking-tight mt-3">
                 PT Gaspoll Management Center
               </h3>
-              <p className="text-on-surface-variant mt-5 leading-relaxed">{t.officeAddress}</p>
-              <p className="text-on-surface-variant mt-4 leading-relaxed">{t.officeNote}</p>
+              <p className="text-on-surface-variant dark:text-gray-300 mt-5 leading-relaxed">{t.officeAddress}</p>
+              <p className="text-on-surface-variant dark:text-gray-300 mt-4 leading-relaxed">{t.officeNote}</p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <a
                   className="bg-gradient-to-r from-primary-container via-primary to-secondary px-8 py-4 rounded-full font-headline font-black text-xs uppercase tracking-wider hover:opacity-95 transition-opacity text-center text-white shadow-sm"
@@ -666,7 +669,7 @@ export default function Page() {
                   {t.mapsOpen}
                 </a>
                 <a
-                  className="border border-outline-variant/60 text-on-surface px-8 py-4 rounded-full font-headline font-black text-xs uppercase tracking-wider hover:bg-white/60 transition-colors text-center"
+                  className="bg-gradient-to-r from-surface-container-low to-surface-container-high dark:from-white/5 dark:to-white/10 border border-outline-variant/60 dark:border-white/10 text-on-surface dark:text-white px-8 py-4 rounded-full font-headline font-black text-xs uppercase tracking-wider hover:opacity-95 transition-opacity text-center"
                   href="#"
                 >
                   {t.connectSecondary}

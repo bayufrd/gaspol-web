@@ -24,13 +24,13 @@ export default function InfoModal({
         aria-label="Close modal"
       />
       <div className="absolute left-1/2 top-1/2 w-[min(920px,calc(100%-2rem))] -translate-x-1/2 -translate-y-1/2">
-        <div className="bg-surface dark:bg-[#121212] text-on-surface dark:text-white rounded-3xl border border-outline-variant/30 shadow-2xl overflow-hidden">
+        <div className="bg-surface dark:bg-[#121212] text-on-surface dark:text-white rounded-3xl border border-outline-variant/30 dark:border-white/10 shadow-2xl overflow-hidden">
           <div className="px-6 sm:px-8 py-5 border-b border-outline-variant/20 flex items-center justify-between gap-4">
             <div className="font-display text-xl sm:text-2xl font-black tracking-tight">{title}</div>
             <button
               type="button"
               onClick={onClose}
-              className="h-10 w-10 grid place-items-center rounded-full border border-outline-variant/30 hover:bg-surface-container-low transition-colors"
+              className="h-10 w-10 grid place-items-center rounded-full border border-outline-variant/30 dark:border-white/10 hover:bg-surface-container-low dark:hover:bg-white/5 transition-colors"
               aria-label="Close"
               title="Close"
             >
@@ -43,4 +43,3 @@ export default function InfoModal({
     </div>
   );
 }
-
