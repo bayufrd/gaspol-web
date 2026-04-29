@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import BrandDocPanel, { type BrandDocTopic } from "@/components/BrandDocPanel";
 
 type BrandKey = "sambelcolek" | "sambelenyahti" | "greenbeans" | "jempolan";
 
@@ -12,7 +13,8 @@ const BRAND_BY_SLUG: Record<
     tagline: string;
     logo: string;
     heroImage: string;
-    sections: Array<{ title: string; paragraphs: string[] }>;
+    sections?: Array<{ title: string; paragraphs: string[] }>;
+    docTopics?: BrandDocTopic[];
   }
 > = {
   "sambel-colek": {
@@ -22,32 +24,32 @@ const BRAND_BY_SLUG: Record<
     logo: "/icon/sambelcolek.png",
     heroImage:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBJEN8WpwzvzTZSI6KaAbv4nTU37zifwW0rmnPbN5jDvwKtd_GzouUHfA4hnrfX0tUn047hjSgApD0DoOIDBU85x1hQA8Z93zyRcn75CkEXZUJJzTaCqb8FKyFuL2Fv-exKfsD9Y2RYzqLThPHLvgFFTXyksmInEDrO5YK8zeiIWAyq21538Wt-_fQDx-hNoC4EunQroCEaMNdMi2vAFGsngQ9BpSLyBxHortchGqcEwYwv4dUSh2bpaKL09Avx6t6dhGjl-MqVx8o",
-    sections: [
+    docTopics: [
       {
-        title: "Tentang Rumah Makan Sambel Colek",
-        paragraphs: [
-          "I. Filosofi Rasa Khas Sambel Colek",
+        key: "filosofi",
+        title: "I. Filosofi Rasa Khas Sambel Colek",
+        content: [
           "Berawal dari kecintaan terhadap kekayaan kuliner Nusantara, Rumah Makan Sambel Colek hadir sebagai oase bagi para pecinta pedas. Kami percaya bahwa sambal bukan sekadar pelengkap, melainkan jiwa dari setiap hidangan. Dengan semangat menyajikan keaslian rasa tradisional yang dipadukan dengan kenyamanan modern, kami berkomitmen untuk menghadirkan pengalaman bersantap yang tak terlupakan bagi setiap pengunjung."
         ]
       },
       {
-        title: "Kualitas yang Tidak Berkompromi",
-        paragraphs: [
-          "II. Kualitas yang Tidak Berkompromi",
+        key: "kualitas",
+        title: "II. Kualitas yang Tidak Berkompromi",
+        content: [
           "Di Sambel Colek, setiap ulekan sambal adalah sebuah dedikasi. Kami hanya menggunakan bahan-bahan segar pilihan untuk memastikan setiap \"colekan\" memberikan ledakan rasa yang pas. Setiap menu yang kami hidangkan diolah dengan standar kebersihan dan kualitas rasa yang tinggi."
         ]
       },
       {
-        title: "Lebih dari Sekedar Tempat Makan",
-        paragraphs: [
-          "III. Lebih dari Sekedar Tempat Makan",
+        key: "tempat",
+        title: "III. Lebih dari Sekedar Tempat Makan",
+        content: [
           "Kami memahami bahwa makan adalah momen untuk berbagi. Itulah mengapa Rumah Makan Sambel Colek dirancang untuk menjadi tempat yang ramah bagi siapa saja, mulai dari mahasiswa yang mencari kenyamanan dan harga terjangkau, hingga keluarga yang ingin menikmati makan siang santai di akhir pekan."
         ]
       },
       {
-        title: "Visi & Misi (ASIK)",
-        paragraphs: [
-          "IV. Visi & Misi Kami",
+        key: "visi-misi",
+        title: "IV. Visi & Misi Kami",
+        content: [
           "Visi:",
           "Menjadi perusahaan bidang F&B yang terus berkembang dan maju, mensejahterakan orang-orang yang mendukung dalam mengembangkan perusahaan, serta dapat memberikan manfaat bagi masyarakat.",
           "Misi:",
@@ -59,9 +61,9 @@ const BRAND_BY_SLUG: Record<
         ]
       },
       {
-        title: "Nilai-nilai Perusahaan",
-        paragraphs: [
-          "V. Nilai – nilai Perusahaan",
+        key: "nilai",
+        title: "V. Nilai – nilai Perusahaan",
+        content: [
           "1. Landasan Dasar Kepribadian Karyawan:",
           "▪ Jujur",
           "▪ Disiplin",
@@ -279,92 +281,53 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
                 <div className="text-xs font-display tracking-widest text-on-surface-variant uppercase">Profil Brand</div>
                 <div className="font-display text-2xl font-black tracking-tight mt-3">{brand.name}</div>
                 <div className="text-on-surface-variant dark:text-gray-300 mt-4 leading-relaxed">
-                  Konten halaman ini mengacu pada dokumen brand di folder `docs/`.
+                  Ringkasan cerdas untuk kebutuhan landing, dengan visualisasi yang ringan dan cepat.
                 </div>
                 <div className="mt-8 flex flex-col gap-3">
-                  {brand.sections.map((s) => (
-                    <a
-                      key={s.title}
-                      href={`#${encodeURIComponent(s.title)}`}
-                      className="text-sm font-headline font-black uppercase tracking-widest text-on-surface-variant dark:text-gray-300 hover:text-on-surface dark:hover:text-white transition-colors"
-                    >
-                      {s.title}
-                    </a>
-                  ))}
+                  {isSambelColek
+                    ? [
+                        { href: "#overview", label: "Overview" },
+                        { href: "#quality", label: "Quality" },
+                        { href: "#audience", label: "Audience" },
+                        { href: "#asik", label: "ASIK" },
+                        { href: "#values", label: "Values" }
+                      ].map((x) => (
+                        <a
+                          key={x.href}
+                          href={x.href}
+                          className="text-sm font-headline font-black uppercase tracking-widest text-on-surface-variant dark:text-gray-300 hover:text-on-surface dark:hover:text-white transition-colors"
+                        >
+                          {x.label}
+                        </a>
+                      ))
+                    : (brand.sections ?? []).map((s) => (
+                        <a
+                          key={s.title}
+                          href={`#${encodeURIComponent(s.title)}`}
+                          className="text-sm font-headline font-black uppercase tracking-widest text-on-surface-variant dark:text-gray-300 hover:text-on-surface dark:hover:text-white transition-colors"
+                        >
+                          {s.title}
+                        </a>
+                      ))}
                 </div>
               </div>
             </div>
             <div className="lg:col-span-8 space-y-6">
               {isSambelColek ? (
-                <section className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10">
-                  <div className="text-xs font-display tracking-widest text-on-surface-variant uppercase">Highlight</div>
-                  <div className="mt-4 rounded-3xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-8">
-                    <div className="flex items-start gap-4">
-                      <div className="h-12 w-12 rounded-2xl bg-gradient-to-r from-secondary-container via-secondary-fixed-dim to-secondary grid place-items-center text-white">
-                        <span className="material-symbols-outlined">format_quote</span>
-                      </div>
-                      <div className="text-on-surface dark:text-white font-display text-2xl sm:text-3xl font-black tracking-tight leading-snug">
-                        Sambal bukan sekadar pelengkap, melainkan jiwa dari setiap hidangan.
-                      </div>
+                <>
+                  <section
+                    id="overview"
+                    className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
+                  >
+                    <div className="flex items-start justify-between gap-6">
+                      <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">Overview</h2>
+                      <span className="material-symbols-outlined text-secondary">restaurant_menu</span>
                     </div>
-                  </div>
-                </section>
-              ) : null}
-
-              {brand.sections.map((s) => (
-                <section
-                  key={s.title}
-                  id={encodeURIComponent(s.title)}
-                  className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
-                >
-                  <div className="flex items-start justify-between gap-6">
-                    <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">{s.title}</h2>
-                    {isSambelColek ? (
-                      <div className="hidden sm:flex items-center gap-2 text-on-surface-variant dark:text-gray-300">
-                        <span className="material-symbols-outlined text-secondary">verified</span>
-                        <span className="text-xs font-headline font-black tracking-widest uppercase">From Docs</span>
-                      </div>
-                    ) : null}
-                  </div>
-
-                  {isSambelColek && s.title === "Tentang Rumah Makan Sambel Colek" ? (
-                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      <div className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
-                        <div className="flex items-center gap-2 text-on-surface dark:text-white">
-                          <span className="material-symbols-outlined text-secondary">restaurant_menu</span>
-                          <span className="font-headline font-black text-xs tracking-widest uppercase">Filosofi</span>
-                        </div>
-                        <div className="text-on-surface-variant dark:text-gray-300 mt-3 text-sm leading-relaxed">
-                          Sambal sebagai identitas utama rasa.
-                        </div>
-                      </div>
-                      <div className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
-                        <div className="flex items-center gap-2 text-on-surface dark:text-white">
-                          <span className="material-symbols-outlined text-secondary">history_edu</span>
-                          <span className="font-headline font-black text-xs tracking-widest uppercase">Tradisi</span>
-                        </div>
-                        <div className="text-on-surface-variant dark:text-gray-300 mt-3 text-sm leading-relaxed">
-                          Keaslian rasa tradisional.
-                        </div>
-                      </div>
-                      <div className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
-                        <div className="flex items-center gap-2 text-on-surface dark:text-white">
-                          <span className="material-symbols-outlined text-secondary">comfort</span>
-                          <span className="font-headline font-black text-xs tracking-widest uppercase">Modern</span>
-                        </div>
-                        <div className="text-on-surface-variant dark:text-gray-300 mt-3 text-sm leading-relaxed">
-                          Kenyamanan modern untuk semua.
-                        </div>
-                      </div>
-                    </div>
-                  ) : null}
-
-                  {isSambelColek && s.title === "Kualitas yang Tidak Berkompromi" ? (
                     <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
                       {[
-                        { icon: "verified", title: "Kualitas", desc: "Standar kebersihan dan kualitas rasa yang tinggi." },
-                        { icon: "eco", title: "Bahan Segar", desc: "Menggunakan bahan-bahan segar pilihan." },
-                        { icon: "sanitize", title: "Higienis", desc: "Proses olah dengan standar kebersihan." }
+                        { icon: "local_fire_department", title: "Pedas", desc: "Fokus pada pengalaman pecinta pedas." },
+                        { icon: "workspace_premium", title: "Rasa Khas", desc: "Sambal sebagai signature rasa." },
+                        { icon: "storefront", title: "Nyaman", desc: "Tradisional bertemu kenyamanan modern." }
                       ].map((x) => (
                         <div key={x.title} className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
                           <div className="flex items-center gap-2 text-on-surface dark:text-white">
@@ -375,14 +338,31 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
                         </div>
                       ))}
                     </div>
-                  ) : null}
+                    <div className="mt-6 rounded-3xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-8">
+                      <div className="flex items-start gap-4">
+                        <div className="h-12 w-12 rounded-2xl bg-gradient-to-r from-secondary-container via-secondary-fixed-dim to-secondary grid place-items-center text-white">
+                          <span className="material-symbols-outlined">format_quote</span>
+                        </div>
+                        <div className="text-on-surface dark:text-white font-display text-2xl sm:text-3xl font-black tracking-tight leading-snug">
+                          Sambal bukan sekadar pelengkap, melainkan jiwa dari setiap hidangan.
+                        </div>
+                      </div>
+                    </div>
+                  </section>
 
-                  {isSambelColek && s.title === "Lebih dari Sekedar Tempat Makan" ? (
+                  <section
+                    id="quality"
+                    className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
+                  >
+                    <div className="flex items-start justify-between gap-6">
+                      <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">Quality</h2>
+                      <span className="material-symbols-outlined text-secondary">verified</span>
+                    </div>
                     <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
                       {[
-                        { icon: "school", title: "Mahasiswa", desc: "Kenyamanan dan harga terjangkau." },
-                        { icon: "work", title: "Pekerja", desc: "Tempat singgah yang ramah untuk semua." },
-                        { icon: "family_restroom", title: "Keluarga", desc: "Makan siang santai di akhir pekan." }
+                        { icon: "eco", title: "Bahan Segar", desc: "Standar bahan yang dipilih dan dijaga." },
+                        { icon: "sanitize", title: "Higienis", desc: "Proses olah yang bersih dan rapi." },
+                        { icon: "star", title: "Konsisten", desc: "Kualitas rasa yang stabil." }
                       ].map((x) => (
                         <div key={x.title} className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
                           <div className="flex items-center gap-2 text-on-surface dark:text-white">
@@ -393,33 +373,75 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
                         </div>
                       ))}
                     </div>
-                  ) : null}
+                  </section>
 
-                  {isSambelColek && s.title === "Visi & Misi (ASIK)" ? (
+                  <section
+                    id="audience"
+                    className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
+                  >
+                    <div className="flex items-start justify-between gap-6">
+                      <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">Audience</h2>
+                      <span className="material-symbols-outlined text-secondary">groups</span>
+                    </div>
+                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      {[
+                        { icon: "school", title: "Mahasiswa", desc: "Tempat nyaman dengan harga yang ramah." },
+                        { icon: "work", title: "Pekerja", desc: "Solusi makan praktis di sela aktivitas." },
+                        { icon: "family_restroom", title: "Keluarga", desc: "Ruang makan bersama yang santai." }
+                      ].map((x) => (
+                        <div key={x.title} className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
+                          <div className="flex items-center gap-2 text-on-surface dark:text-white">
+                            <span className="material-symbols-outlined text-secondary">{x.icon}</span>
+                            <span className="font-headline font-black text-xs tracking-widest uppercase">{x.title}</span>
+                          </div>
+                          <div className="text-on-surface-variant dark:text-gray-300 mt-3 text-sm leading-relaxed">{x.desc}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+
+                  <section
+                    id="asik"
+                    className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
+                  >
+                    <div className="flex items-start justify-between gap-6">
+                      <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">ASIK</h2>
+                      <span className="material-symbols-outlined text-secondary">account_tree</span>
+                    </div>
                     <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {[
-                        { icon: "handshake", title: "Amanah" },
-                        { icon: "account_tree", title: "Sistematis & adaptif" },
-                        { icon: "verified_user", title: "Integritas" },
-                        { icon: "groups", title: "Kolaboratif" }
+                        { icon: "handshake", title: "Amanah", desc: "Dipercaya, menjaga kualitas layanan." },
+                        { icon: "account_tree", title: "Sistematis & adaptif", desc: "Operasional jelas, siap berubah." },
+                        { icon: "verified_user", title: "Integritas", desc: "Tegas, bertanggung jawab, konsisten." },
+                        { icon: "groups", title: "Kolaboratif", desc: "Kerja sama sinergis lintas tim." }
                       ].map((x) => (
                         <div key={x.title} className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
                           <div className="flex items-center gap-3">
                             <div className="h-12 w-12 rounded-2xl bg-gradient-to-r from-primary-container via-primary to-secondary grid place-items-center text-white">
                               <span className="material-symbols-outlined">{x.icon}</span>
                             </div>
-                            <div className="font-display text-xl font-black tracking-tight">{x.title}</div>
+                            <div>
+                              <div className="font-display text-xl font-black tracking-tight">{x.title}</div>
+                              <div className="text-on-surface-variant dark:text-gray-300 mt-1 text-sm leading-relaxed">{x.desc}</div>
+                            </div>
                           </div>
                         </div>
                       ))}
                     </div>
-                  ) : null}
+                  </section>
 
-                  {isSambelColek && s.title === "Nilai-nilai Perusahaan" ? (
+                  <section
+                    id="values"
+                    className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
+                  >
+                    <div className="flex items-start justify-between gap-6">
+                      <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">Values</h2>
+                      <span className="material-symbols-outlined text-secondary">checklist</span>
+                    </div>
                     <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
                         <div className="font-headline font-black text-xs tracking-widest uppercase text-on-surface dark:text-white">
-                          Landasan Dasar Kepribadian
+                          Kepribadian
                         </div>
                         <ul className="mt-4 space-y-2 text-on-surface-variant dark:text-gray-300">
                           {["Jujur", "Disiplin", "Tanggung Jawab", "Ikhlas", "Taqwa"].map((x) => (
@@ -432,7 +454,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
                       </div>
                       <div className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
                         <div className="font-headline font-black text-xs tracking-widest uppercase text-on-surface dark:text-white">
-                          Prinsip Dasar Bekerja
+                          Prinsip Kerja
                         </div>
                         <ul className="mt-4 space-y-2 text-on-surface-variant dark:text-gray-300">
                           {["Cepat", "Sigap", "Cermat", "Rapi", "Santun", "Ceria"].map((x) => (
@@ -448,27 +470,39 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
                           <div className="font-display text-2xl font-black tracking-tight text-on-surface dark:text-white">
                             Brand Assets
                           </div>
-                          <div className="text-on-surface-variant dark:text-gray-300 mt-2">
-                            VI. Logo Perusahaan
-                          </div>
+                          <div className="text-on-surface-variant dark:text-gray-300 mt-2">Logo</div>
                         </div>
                         <div className="inline-flex items-center gap-4 bg-white rounded-2xl px-5 py-3 border border-outline-variant/25 shadow-sm">
                           <Image src={brand.logo} alt={`${brand.name} logo`} width={96} height={96} className="h-16 w-16 object-contain" />
                         </div>
                       </div>
                     </div>
-                  ) : null}
+                  </section>
+                </>
+              ) : (
+                (brand.sections ?? []).map((s) => (
+                  <section
+                    key={s.title}
+                    id={encodeURIComponent(s.title)}
+                    className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
+                  >
+                    <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">{s.title}</h2>
+                    <div className="mt-6 space-y-4 text-on-surface-variant dark:text-gray-300 leading-relaxed">
+                      {s.paragraphs.map((p) => (
+                        <p key={p}>{p}</p>
+                      ))}
+                    </div>
+                  </section>
+                ))
+              )}
 
-                  <div className="mt-6 space-y-4 text-on-surface-variant dark:text-gray-300 leading-relaxed">
-                    {s.paragraphs.map((p) => (
-                      <p key={p}>{p}</p>
-                    ))}
-                  </div>
-                </section>
-              ))}
             </div>
           </div>
         </section>
+
+        {isSambelColek && brand.docTopics?.length ? (
+          <BrandDocPanel title="Profil Brand" desc="Buka setiap bagian untuk melihat sesuai dokumen." topics={brand.docTopics} />
+        ) : null}
       </main>
     </>
   );
