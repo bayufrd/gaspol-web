@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brand Beta | GASPOLL Management Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdea6",
+                    "on-primary-fixed": "#410000",
+                    "surface-container-highest": "#d9e3f4",
+                    "primary-fixed-dim": "#ffb4a8",
+                    "tertiary-fixed": "#e5e2e1",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#ffdad4",
+                    "on-secondary-fixed": "#271900",
+                    "surface-variant": "#d9e3f4",
+                    "on-background": "#121c28",
+                    "primary": "#570000",
+                    "on-surface": "#121c28",
+                    "surface-container-low": "#eef4ff",
+                    "secondary-fixed-dim": "#f7bd48",
+                    "secondary-container": "#fdc34d",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#5a413d",
+                    "on-tertiary-container": "#a8a6a6",
+                    "surface": "#f8f9ff",
+                    "tertiary": "#272626",
+                    "on-primary-fixed-variant": "#8f0f07",
+                    "surface-dim": "#d1dbec",
+                    "on-secondary-fixed-variant": "#5d4200",
+                    "surface-container-high": "#dfe9fa",
+                    "background": "#f8f9ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "secondary": "#7b5800",
+                    "surface-container": "#e5eeff",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#b22b1d",
+                    "primary-container": "#800000",
+                    "on-secondary-container": "#715000",
+                    "tertiary-container": "#3d3c3c",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#27313e",
+                    "inverse-primary": "#ffb4a8",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-fixed-variant": "#474646",
+                    "surface-bright": "#f8f9ff",
+                    "outline": "#8e706c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#ff8371",
+                    "outline-variant": "#e2bfb9",
+                    "on-tertiary-fixed": "#1c1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .perspective-header-bg {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            z-index: -1;
+            transform: translateY(-50%);
+        }
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+<div class="flex justify-between items-center px-12 py-6 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-manrope font-black tracking-tighter text-2xl text-red-950 dark:text-stone-50">GASPOLL</span>
+<div class="hidden md:flex gap-8">
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-red-800 dark:hover:text-amber-200 transition-colors duration-300" href="#">Executive Profile</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-red-800 dark:hover:text-amber-200 transition-colors duration-300" href="#">Mission</a>
+<a class="text-red-900 dark:text-amber-400 font-bold border-b-2 border-amber-500 pb-1 hover:text-red-800 dark:hover:text-amber-200 transition-colors duration-300" href="#">Strategic Services</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-red-800 dark:hover:text-amber-200 transition-colors duration-300" href="#">Case Studies</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:scale-110 transition-transform" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:scale-110 transition-transform" data-icon="settings">settings</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-headline font-bold text-sm tracking-wide active:scale-95 duration-200 shadow-lg shadow-primary/20">Connect</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 min-h-screen">
+<!-- Hero Section: Split Screen -->
+<section class="grid grid-cols-1 md:grid-cols-2 h-[calc(100vh-96px)] overflow-hidden">
+<div class="relative h-full order-2 md:order-1 overflow-hidden">
+<img alt="Architectural Luxury" class="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100" data-alt="Stunning vertical shot of a modern glass skyscraper reflecting a deep blue sky during blue hour with sophisticated architectural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGQOAMuDV41ntzHyhNGkhk49GWCfN9OkOw80nwA7C9V1II8-q5G86LeKW0jQSkiUiJDy4B0-8XHAqngvX7Hb_cJYDC35JEBJkWIo_Ru2slbxTQuFPByBndkx4vSbE-PKXGDRulFnZpfQxYx_HLk0CKFlTlWvR2KWUy0869uJSkP-xFubliqcXMn6zLB1HrWVSpqVWdgdwklF0_PWJ1gBnNYOJlYw8_2gczFSKxTqZBdcVzWTDvs2YL4pgBRqElOGOXm-mQpb8p2hA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+<div class="flex flex-col justify-center items-start px-12 md:px-24 bg-white order-1 md:order-2">
+<div class="max-w-md">
+<span class="inline-block text-secondary font-headline font-extrabold tracking-[0.3em] uppercase text-xs mb-4">Portfolio Tier IV</span>
+<h1 class="font-display text-7xl md:text-8xl font-black text-primary leading-tight tracking-tighter mb-6">Brand Beta</h1>
+<p class="font-display text-2xl text-on-surface-variant font-light tracking-tight leading-relaxed mb-12">
+                        Redefining Urban Excellence through sovereign management and architectural heritage.
+                    </p>
+<div class="flex items-center gap-6">
+<div class="h-px w-12 bg-secondary/30"></div>
+<span class="font-label text-sm uppercase tracking-widest text-secondary font-bold">The Sovereign Standard</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission Section -->
+<section class="py-32 px-12 bg-surface-container-low">
+<div class="max-w-4xl mx-auto text-center relative">
+<span class="material-symbols-outlined text-secondary/20 text-8xl absolute -top-12 left-1/2 -translate-x-1/2 select-none" data-icon="format_quote">format_quote</span>
+<h2 class="font-display text-3xl md:text-5xl font-medium text-on-surface leading-tight italic">
+                    "Our mission is to curate urban landscapes that command respect and endure through generations, harmonizing high-yield asset performance with the prestige of sovereign management."
+                </h2>
+<div class="mt-12 flex flex-col items-center">
+<div class="w-16 h-1 bg-secondary mb-4"></div>
+<p class="font-headline font-bold text-primary uppercase tracking-[0.2em] text-sm">Strategic Governance Protocol</p>
+</div>
+</div>
+</section>
+<!-- Services Section: Asymmetrical Grid -->
+<section class="py-32 px-12 max-w-[1920px] mx-auto">
+<div class="relative mb-24">
+<div class="perspective-header-bg bg-surface-container-high"></div>
+<h3 class="font-display text-5xl font-extrabold text-on-surface pl-4 relative">Strategic Verticals</h3>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Service 1 -->
+<div class="col-span-12 md:col-span-7 group">
+<div class="bg-white p-12 rounded-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/5">
+<div class="flex justify-between items-start mb-16">
+<span class="text-6xl font-display font-black text-surface-container-highest group-hover:text-secondary-fixed transition-colors">01</span>
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="account_balance">account_balance</span>
+</div>
+<h4 class="font-display text-3xl font-bold text-primary mb-6">Strategic Development</h4>
+<p class="text-on-surface-variant leading-relaxed max-w-lg mb-8">
+                            Orchestrating large-scale urban transitions with a focus on long-term capital appreciation and socio-economic prestige.
+                        </p>
+<button class="text-secondary font-headline font-bold text-xs uppercase tracking-widest flex items-center gap-2 group/btn">
+                            Explore Domain <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-2 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="col-span-12 md:col-span-5 md:mt-16 group">
+<div class="bg-surface-container-high p-12 rounded-xl h-full transition-all duration-500 hover:-translate-y-2">
+<div class="flex justify-between items-start mb-16">
+<span class="text-6xl font-display font-black text-white group-hover:text-secondary-fixed-dim transition-colors">02</span>
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="domain_verification">domain_verification</span>
+</div>
+<h4 class="font-display text-3xl font-bold text-primary mb-6">Asset Management</h4>
+<p class="text-on-surface-variant leading-relaxed mb-8">
+                            High-fidelity oversight of luxury portfolios, ensuring peak operational efficiency and asset integrity.
+                        </p>
+<button class="text-secondary font-headline font-bold text-xs uppercase tracking-widest flex items-center gap-2 group/btn">
+                            Portfolio Review <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-2 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="col-span-12 md:col-span-12 group">
+<div class="bg-primary p-12 rounded-xl flex flex-col md:flex-row gap-12 items-center justify-between text-on-primary">
+<div class="max-w-xl">
+<span class="text-6xl font-display font-black text-primary-container block mb-6">03</span>
+<h4 class="font-display text-3xl font-bold mb-6">Urban Planning</h4>
+<p class="text-on-primary/70 leading-relaxed mb-8 text-lg">
+                                Master-planning future-ready districts that integrate sustainable technology with timeless architectural aesthetics.
+                            </p>
+</div>
+<div class="w-full md:w-1/3 aspect-video rounded-lg overflow-hidden grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all">
+<img alt="Urban Planning" class="w-full h-full object-cover" data-alt="Minimalist architectural model of a futuristic city district with clean lines and greenery under soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC58i8ukiK23Df18wqvi3zkbDiF2LJz2ISBxnXCHVgStZJK8SvXEZp50IohUBysS5J20ajKdUnzQ0OJl-H4fuJWW-31JzhRk2rCRbNwqZLbA3wJ665Uvb-5PZm3HZ_k7TFSyIXySer9yL8XcJZlTsmAic2i4pqS9JdNQyh_kNpMEkHZw30krSWqUvEhE9NjWfLDmqSGmoXd4-vnzX2fsrgO99o7vj69RAMZZpbK3ChAdEULesw-uo2YaStdMni5PF9_XEFkqhMb-0"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Project: Full Width -->
+<section class="relative min-h-[819px] flex items-center">
+<div class="absolute inset-0 z-0">
+<img alt="The Zenith Complex" class="w-full h-full object-cover" data-alt="Wide panoramic view of a massive modern mixed-use complex with glass facades at twilight, glowing with interior lights and surrounding manicured landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJEN8WpwzvzTZSI6KaAbv4nTU37zifwW0rmnPbN5jDvwKtd_GzouUHfA4hnrfX0tUn047hjSgApD0DoOIDBU85x1hQA8Z93zyRcn75CkEXZUJJzTaCqb8FKyFuL2Fv-exKfsD9Y2RYzqLThPHLvgFFTXyksmInEDrO5YK8zeiIWAyq21538Wt-_fQDx-hNoC4EunQroCEaMNdMi2vAFGsngQ9BpSLyBxHortchGqcEwYwv4dUSh2bpaKL09Avx6t6dhGjl-MqVx8o"/>
+<div class="absolute inset-0 bg-primary/60 backdrop-multiply"></div>
+</div>
+<div class="relative z-10 w-full px-12 md:px-24">
+<div class="max-w-4xl text-white">
+<span class="font-headline font-bold text-secondary-fixed uppercase tracking-[0.4em] text-sm mb-6 block">Legacy Project Spotlight</span>
+<h2 class="font-display text-6xl md:text-8xl font-black mb-12 tracking-tighter">The Zenith Complex</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-white/20 pt-12">
+<div>
+<p class="text-white/60 font-label text-xs uppercase tracking-widest mb-2">Project ROI</p>
+<p class="font-display text-4xl font-bold text-secondary-fixed">24.8%</p>
+</div>
+<div>
+<p class="text-white/60 font-label text-xs uppercase tracking-widest mb-2">Total Area</p>
+<p class="font-display text-4xl font-bold text-secondary-fixed">1.2M m²</p>
+</div>
+<div>
+<p class="text-white/60 font-label text-xs uppercase tracking-widest mb-2">Completion</p>
+<p class="font-display text-4xl font-bold text-secondary-fixed">2024</p>
+</div>
+<div>
+<p class="text-white/60 font-label text-xs uppercase tracking-widest mb-2">Status</p>
+<p class="font-display text-4xl font-bold text-secondary-fixed">Sovereign</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 px-12 bg-white text-center">
+<div class="max-w-2xl mx-auto">
+<h3 class="font-display text-4xl font-bold text-primary mb-8">Inquire for Partnership</h3>
+<p class="text-on-surface-variant font-body text-lg mb-12 leading-relaxed">
+                    Elevate your portfolio with the Brand Beta governance model. Exclusive engagements available for institutional partners.
+                </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<a class="text-primary font-display font-bold text-xl hover:text-secondary transition-colors underline decoration-secondary/30 underline-offset-8" href="mailto:executive@gaspoll.center">
+                        executive@gaspoll.center
+                    </a>
+<div class="hidden md:block w-px h-8 bg-stone-200"></div>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-xl font-headline font-bold text-sm tracking-widest uppercase active:scale-95 duration-200 shadow-xl shadow-primary/10">
+                        Request Brochure
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-20 px-12 border-t border-stone-200 dark:border-stone-900 bg-stone-50 dark:bg-stone-950">
+<div class="flex flex-col md:flex-row justify-between items-center w-full max-w-[1920px] mx-auto">
+<div class="mb-12 md:mb-0">
+<span class="text-xs font-black text-stone-300 dark:text-stone-700 tracking-[0.2em] uppercase">GASPOLL MANAGEMENT CENTER</span>
+<p class="text-stone-400 dark:text-stone-600 font-label text-[10px] mt-2 tracking-[0.2em]">© 2024 GASPOLL MANAGEMENT CENTER. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 md:gap-12">
+<a class="font-label text-xs uppercase tracking-[0.2em] text-stone-400 hover:text-stone-900 dark:text-stone-600 transition-all duration-500 hover:tracking-[0.25em]" href="#">Privacy Policy</a>
+<a class="font-label text-xs uppercase tracking-[0.2em] text-stone-400 hover:text-stone-900 dark:text-stone-600 transition-all duration-500 hover:tracking-[0.25em]" href="#">Terms of Engagement</a>
+<a class="font-label text-xs uppercase tracking-[0.2em] text-stone-400 hover:text-stone-900 dark:text-stone-600 transition-all duration-500 hover:tracking-[0.25em]" href="#">Global Press</a>
+<a class="font-label text-xs uppercase tracking-[0.2em] text-red-900 dark:text-amber-500 transition-all duration-500 hover:tracking-[0.25em]" href="#">Investor Relations</a>
+</div>
+</div>
+</footer>
+</body></html>
