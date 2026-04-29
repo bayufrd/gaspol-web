@@ -7,6 +7,17 @@ body {
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   @apply bg-surface text-on-surface font-sans selection:bg-secondary-container selection:text-on-secondary-container;
 }

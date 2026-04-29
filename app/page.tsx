@@ -338,6 +338,7 @@ export default function Page() {
   const brands = useMemo(() => brandsByLang[lang], [lang]);
   const [topicKey, setTopicKey] = useState<string | null>(null);
   const activeTopic = useMemo(() => t.topics.find((x: any) => x.key === topicKey) ?? null, [t, topicKey]);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const officeLat = -7.772171;
   const officeLng = 110.405041;
   const mapsQuery = encodeURIComponent(`${officeLat},${officeLng}`);
@@ -373,6 +374,29 @@ export default function Page() {
               />
             </div>
           </div>
+          <div className="lg:hidden flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((v) => !v)}
+              className="h-10 w-10 rounded-full grid place-items-center border border-outline-variant/40 bg-white/60 dark:bg-[#272626]/60 backdrop-blur hover:bg-white/80 dark:hover:bg-[#272626]/80 transition-colors"
+              aria-label="Toggle menu"
+              title="Menu"
+            >
+              <span className="material-symbols-outlined text-on-surface dark:text-white text-[20px]">
+                {mobileMenuOpen ? "close" : "menu"}
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setLang((v) => (v === "id" ? "en" : "id"))}
+              className="h-10 px-4 rounded-full border border-outline-variant/40 bg-white/60 dark:bg-[#272626]/60 backdrop-blur hover:bg-white/80 dark:hover:bg-[#272626]/80 transition-colors text-xs font-headline font-black tracking-widest"
+              aria-label="Toggle language"
+              title="Toggle language"
+            >
+              {t.langLabel}
+            </button>
+            <ThemeToggle />
+          </div>
           <div className="hidden lg:flex items-center gap-12 text-sm font-headline uppercase tracking-tight">
             <a className="text-secondary font-bold border-b-2 border-secondary pb-1" href="#brands">
               {t.nav.brands}
@@ -387,7 +411,7 @@ export default function Page() {
               {t.nav.connect}
             </a>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <a
               href="#connect"
               className="bg-gradient-to-r from-secondary-container via-secondary-fixed-dim to-secondary px-5 py-2 rounded-full font-headline font-black text-xs uppercase tracking-wider hover:opacity-95 transition-opacity text-white shadow-sm"
@@ -406,6 +430,35 @@ export default function Page() {
             <ThemeToggle />
           </div>
         </div>
+        {mobileMenuOpen ? (
+          <div className="lg:hidden px-4 sm:px-8 pb-4 animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="bg-white/90 dark:bg-[#1c1c1c]/90 backdrop-blur rounded-2xl border border-outline-variant/25 dark:border-white/10 p-4">
+              {[
+                { href: "#brands", label: t.nav.brands },
+                { href: "#about", label: t.nav.about },
+                { href: "#vision", label: t.nav.vision },
+                { href: "#connect", label: t.nav.connect }
+              ].map((x) => (
+                <a
+                  key={x.href}
+                  href={x.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between py-3 text-sm font-headline font-black uppercase tracking-widest text-on-surface dark:text-white"
+                >
+                  <span>{x.label}</span>
+                  <span className="material-symbols-outlined text-secondary">arrow_outward</span>
+                </a>
+              ))}
+              <a
+                href="#connect"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-3 block text-center bg-gradient-to-r from-secondary-container via-secondary-fixed-dim to-secondary px-5 py-3 rounded-full font-headline font-black text-xs uppercase tracking-wider hover:opacity-95 transition-opacity text-white shadow-sm"
+              >
+                {t.ctaTop}
+              </a>
+            </div>
+          </div>
+        ) : null}
       </nav>
 
       <main className="pt-28">
