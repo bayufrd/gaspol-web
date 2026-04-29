@@ -196,6 +196,8 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
   const brand = BRAND_BY_SLUG[slug];
   if (!brand) notFound();
 
+  const isSambelColek = brand.key === "sambelcolek";
+
   return (
     <>
       <nav className="bg-white/80 dark:bg-[#272626]/80 backdrop-blur-lg fixed top-0 w-full z-50 shadow-sm dark:shadow-none bg-surface-container-low">
@@ -254,6 +256,18 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
                   </div>
                 </div>
               </div>
+              {isSambelColek ? (
+                <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                  <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 backdrop-blur px-5 py-3 rounded-full">
+                    <span className="material-symbols-outlined text-secondary-fixed">local_fire_department</span>
+                    <span className="font-headline font-black text-xs tracking-widest uppercase">Spicy Culinary</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 backdrop-blur px-5 py-3 rounded-full">
+                    <span className="material-symbols-outlined text-secondary-fixed">restaurant_menu</span>
+                    <span className="font-headline font-black text-xs tracking-widest uppercase">Signature Sambal</span>
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
         </section>
@@ -281,13 +295,170 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
               </div>
             </div>
             <div className="lg:col-span-8 space-y-6">
+              {isSambelColek ? (
+                <section className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10">
+                  <div className="text-xs font-display tracking-widest text-on-surface-variant uppercase">Highlight</div>
+                  <div className="mt-4 rounded-3xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-8">
+                    <div className="flex items-start gap-4">
+                      <div className="h-12 w-12 rounded-2xl bg-gradient-to-r from-secondary-container via-secondary-fixed-dim to-secondary grid place-items-center text-white">
+                        <span className="material-symbols-outlined">format_quote</span>
+                      </div>
+                      <div className="text-on-surface dark:text-white font-display text-2xl sm:text-3xl font-black tracking-tight leading-snug">
+                        Sambal bukan sekadar pelengkap, melainkan jiwa dari setiap hidangan.
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              ) : null}
+
               {brand.sections.map((s) => (
                 <section
                   key={s.title}
                   id={encodeURIComponent(s.title)}
                   className="bg-surface-container-low dark:bg-[#1c1c1c] border border-outline-variant/30 dark:border-white/10 rounded-3xl p-8 sm:p-10"
                 >
-                  <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">{s.title}</h2>
+                  <div className="flex items-start justify-between gap-6">
+                    <h2 className="font-display text-3xl sm:text-4xl font-black tracking-tight">{s.title}</h2>
+                    {isSambelColek ? (
+                      <div className="hidden sm:flex items-center gap-2 text-on-surface-variant dark:text-gray-300">
+                        <span className="material-symbols-outlined text-secondary">verified</span>
+                        <span className="text-xs font-headline font-black tracking-widest uppercase">From Docs</span>
+                      </div>
+                    ) : null}
+                  </div>
+
+                  {isSambelColek && s.title === "Tentang Rumah Makan Sambel Colek" ? (
+                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
+                        <div className="flex items-center gap-2 text-on-surface dark:text-white">
+                          <span className="material-symbols-outlined text-secondary">restaurant_menu</span>
+                          <span className="font-headline font-black text-xs tracking-widest uppercase">Filosofi</span>
+                        </div>
+                        <div className="text-on-surface-variant dark:text-gray-300 mt-3 text-sm leading-relaxed">
+                          Sambal sebagai identitas utama rasa.
+                        </div>
+                      </div>
+                      <div className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
+                        <div className="flex items-center gap-2 text-on-surface dark:text-white">
+                          <span className="material-symbols-outlined text-secondary">history_edu</span>
+                          <span className="font-headline font-black text-xs tracking-widest uppercase">Tradisi</span>
+                        </div>
+                        <div className="text-on-surface-variant dark:text-gray-300 mt-3 text-sm leading-relaxed">
+                          Keaslian rasa tradisional.
+                        </div>
+                      </div>
+                      <div className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
+                        <div className="flex items-center gap-2 text-on-surface dark:text-white">
+                          <span className="material-symbols-outlined text-secondary">comfort</span>
+                          <span className="font-headline font-black text-xs tracking-widest uppercase">Modern</span>
+                        </div>
+                        <div className="text-on-surface-variant dark:text-gray-300 mt-3 text-sm leading-relaxed">
+                          Kenyamanan modern untuk semua.
+                        </div>
+                      </div>
+                    </div>
+                  ) : null}
+
+                  {isSambelColek && s.title === "Kualitas yang Tidak Berkompromi" ? (
+                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      {[
+                        { icon: "verified", title: "Kualitas", desc: "Standar kebersihan dan kualitas rasa yang tinggi." },
+                        { icon: "eco", title: "Bahan Segar", desc: "Menggunakan bahan-bahan segar pilihan." },
+                        { icon: "sanitize", title: "Higienis", desc: "Proses olah dengan standar kebersihan." }
+                      ].map((x) => (
+                        <div key={x.title} className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
+                          <div className="flex items-center gap-2 text-on-surface dark:text-white">
+                            <span className="material-symbols-outlined text-secondary">{x.icon}</span>
+                            <span className="font-headline font-black text-xs tracking-widest uppercase">{x.title}</span>
+                          </div>
+                          <div className="text-on-surface-variant dark:text-gray-300 mt-3 text-sm leading-relaxed">{x.desc}</div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {isSambelColek && s.title === "Lebih dari Sekedar Tempat Makan" ? (
+                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      {[
+                        { icon: "school", title: "Mahasiswa", desc: "Kenyamanan dan harga terjangkau." },
+                        { icon: "work", title: "Pekerja", desc: "Tempat singgah yang ramah untuk semua." },
+                        { icon: "family_restroom", title: "Keluarga", desc: "Makan siang santai di akhir pekan." }
+                      ].map((x) => (
+                        <div key={x.title} className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-5">
+                          <div className="flex items-center gap-2 text-on-surface dark:text-white">
+                            <span className="material-symbols-outlined text-secondary">{x.icon}</span>
+                            <span className="font-headline font-black text-xs tracking-widest uppercase">{x.title}</span>
+                          </div>
+                          <div className="text-on-surface-variant dark:text-gray-300 mt-3 text-sm leading-relaxed">{x.desc}</div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {isSambelColek && s.title === "Visi & Misi (ASIK)" ? (
+                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {[
+                        { icon: "handshake", title: "Amanah" },
+                        { icon: "account_tree", title: "Sistematis & adaptif" },
+                        { icon: "verified_user", title: "Integritas" },
+                        { icon: "groups", title: "Kolaboratif" }
+                      ].map((x) => (
+                        <div key={x.title} className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
+                          <div className="flex items-center gap-3">
+                            <div className="h-12 w-12 rounded-2xl bg-gradient-to-r from-primary-container via-primary to-secondary grid place-items-center text-white">
+                              <span className="material-symbols-outlined">{x.icon}</span>
+                            </div>
+                            <div className="font-display text-xl font-black tracking-tight">{x.title}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {isSambelColek && s.title === "Nilai-nilai Perusahaan" ? (
+                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
+                        <div className="font-headline font-black text-xs tracking-widest uppercase text-on-surface dark:text-white">
+                          Landasan Dasar Kepribadian
+                        </div>
+                        <ul className="mt-4 space-y-2 text-on-surface-variant dark:text-gray-300">
+                          {["Jujur", "Disiplin", "Tanggung Jawab", "Ikhlas", "Taqwa"].map((x) => (
+                            <li key={x} className="flex items-start gap-2">
+                              <span className="material-symbols-outlined text-secondary text-[18px] mt-[2px]">check_circle</span>
+                              <span>{x}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6">
+                        <div className="font-headline font-black text-xs tracking-widest uppercase text-on-surface dark:text-white">
+                          Prinsip Dasar Bekerja
+                        </div>
+                        <ul className="mt-4 space-y-2 text-on-surface-variant dark:text-gray-300">
+                          {["Cepat", "Sigap", "Cermat", "Rapi", "Santun", "Ceria"].map((x) => (
+                            <li key={x} className="flex items-start gap-2">
+                              <span className="material-symbols-outlined text-secondary text-[18px] mt-[2px]">check_circle</span>
+                              <span>{x}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="sm:col-span-2 rounded-2xl border border-outline-variant/25 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 flex items-center justify-between gap-6 flex-col sm:flex-row">
+                        <div>
+                          <div className="font-display text-2xl font-black tracking-tight text-on-surface dark:text-white">
+                            Brand Assets
+                          </div>
+                          <div className="text-on-surface-variant dark:text-gray-300 mt-2">
+                            VI. Logo Perusahaan
+                          </div>
+                        </div>
+                        <div className="inline-flex items-center gap-4 bg-white rounded-2xl px-5 py-3 border border-outline-variant/25 shadow-sm">
+                          <Image src={brand.logo} alt={`${brand.name} logo`} width={96} height={96} className="h-16 w-16 object-contain" />
+                        </div>
+                      </div>
+                    </div>
+                  ) : null}
+
                   <div className="mt-6 space-y-4 text-on-surface-variant dark:text-gray-300 leading-relaxed">
                     {s.paragraphs.map((p) => (
                       <p key={p}>{p}</p>
