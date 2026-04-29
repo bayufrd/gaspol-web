@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GASPOLL MANAGEMENT CENTER</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#d9e3f4",
+                    "secondary-fixed-dim": "#f7bd48",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#121c28",
+                    "outline": "#8e706c",
+                    "surface": "#f8f9ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f8f9ff",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#ff8371",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#5a413d",
+                    "inverse-surface": "#27313e",
+                    "primary-fixed": "#ffdad4",
+                    "primary-container": "#800000",
+                    "secondary": "#7b5800",
+                    "primary-fixed-dim": "#ffb4a8",
+                    "on-tertiary-container": "#a8a6a6",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#b22b1d",
+                    "inverse-primary": "#ffb4a8",
+                    "surface-container-low": "#eef4ff",
+                    "secondary-fixed": "#ffdea6",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#410000",
+                    "on-secondary-container": "#715000",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#272626",
+                    "on-secondary-fixed-variant": "#5d4200",
+                    "tertiary-container": "#3d3c3c",
+                    "tertiary-fixed": "#e5e2e1",
+                    "on-surface": "#121c28",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "secondary-container": "#fdc34d",
+                    "on-secondary-fixed": "#271900",
+                    "on-tertiary-fixed-variant": "#474646",
+                    "primary": "#570000",
+                    "surface-container-high": "#dfe9fa",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "surface-container": "#e5eeff",
+                    "surface-dim": "#d1dbec",
+                    "background": "#f8f9ff",
+                    "outline-variant": "#e2bfb9",
+                    "surface-container-highest": "#d9e3f4",
+                    "on-primary-fixed-variant": "#8f0f07"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .perspective-header-bg {
+        position: absolute;
+        top: 1.5rem;
+        left: 0;
+        height: 40px;
+        width: 100%;
+        background-color: theme('colors.surface-container-low');
+        z-index: 0;
+      }
+      .editorial-text-shadow {
+        text-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation Bar -->
+<nav class="bg-white/80 dark:bg-[#272626]/80 backdrop-blur-lg fixed top-0 w-full z-50 shadow-sm dark:shadow-none bg-surface-container-low">
+<div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-4">
+<img alt="GASPOLL Logo" class="h-8 w-auto" data-alt="minimalist corporate logo for gaspoll management center in burgundy and gold colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZYeOBzE-qOiF-7WP-29kvo3ro6Xa3sxNSOOHuvWIhEfeomllTWCyi2Fd26RdOEf26TYUfSxu6Kr18js4h8v0Bp1o89EmcOeiauj_Msqq6SK2utJfhRNEqaQVIS92J-s9dZy9NQWsEov0AJpqUWLGX7OiITcygmgDbTMLk-8QQb-nWIpOOnMKuAnYRsPL8AwlwXH3Ik-WPlXN_0zqZdVKLcRXorSXWjV7JdwmnYXONxtzCHemHYG6z39GyUc3rCQ-JNjB_DoHqv94"/>
+<span class="text-2xl font-black text-[#800000] dark:text-white tracking-tighter">GASPOLL</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-['Manrope'] font-bold tracking-tight text-sm uppercase text-[#800000] dark:text-[#fdc34d] border-b-2 border-[#fdc34d] pb-1" href="#">Brands</a>
+<a class="font-['Manrope'] font-bold tracking-tight text-sm uppercase text-[#272626] dark:text-gray-400 hover:text-[#800000] dark:hover:text-white transition-colors" href="#">About</a>
+<a class="font-['Manrope'] font-bold tracking-tight text-sm uppercase text-[#272626] dark:text-gray-400 hover:text-[#800000] dark:hover:text-white transition-colors" href="#">Expertise</a>
+<a class="font-['Manrope'] font-bold tracking-tight text-sm uppercase text-[#272626] dark:text-gray-400 hover:text-[#800000] dark:hover:text-white transition-colors" href="#">Network</a>
+</div>
+<div class="flex items-center gap-6">
+<span class="font-['Manrope'] font-bold tracking-tight text-sm uppercase text-[#800000] dark:text-[#fdc34d]">English</span>
+<button class="material-symbols-outlined text-[#800000] dark:text-[#fdc34d] hover:opacity-80 transition-all duration-300 scale-95 active:scale-90 transition-transform">dark_mode</button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center overflow-hidden px-8 lg:px-24">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-surface to-surface"></div>
+<div class="absolute right-0 top-0 w-1/2 h-full opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-5xl">
+<p class="font-display font-bold text-secondary tracking-widest uppercase text-sm mb-6 flex items-center gap-2">
+<span class="w-12 h-[1px] bg-secondary"></span>
+                    Sovereign Strategy
+                </p>
+<h1 class="font-display text-6xl md:text-8xl font-extrabold text-on-surface leading-[1.1] tracking-tighter mb-8 editorial-text-shadow">
+                    Empowering Brands, <br/>
+<span class="text-primary italic">Driving Excellence.</span>
+</h1>
+<p class="font-body text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-12">
+                    A premium digital concierge for corporate evolution. We orchestrate market-leading strategies to elevate your brand's presence in the global arena.
+                </p>
+<div class="flex flex-wrap gap-6">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-10 py-5 rounded-xl font-headline font-bold text-lg hover:translate-y-[-2px] transition-all shadow-xl shadow-primary/20">
+                        Inquire Now
+                    </button>
+<button class="border border-outline-variant/20 bg-white/50 backdrop-blur-sm text-on-surface px-10 py-5 rounded-xl font-headline font-bold text-lg hover:bg-surface-container-high transition-all">
+                        Our Expertise
+                    </button>
+</div>
+</div>
+<div class="absolute bottom-12 right-12 hidden lg:block">
+<div class="flex flex-col gap-4">
+<div class="w-[1px] h-24 bg-outline-variant/30 self-center"></div>
+<span class="vertical-text font-display text-xs tracking-[0.3em] uppercase opacity-40 select-none" style="writing-mode: vertical-rl;">ESTABLISHED MMXXIV</span>
+</div>
+</div>
+</section>
+<!-- Brand Showcase (Bento Grid) -->
+<section class="py-32 px-8 lg:px-24 bg-surface">
+<div class="relative mb-24">
+<div class="perspective-header-bg"></div>
+<h2 class="relative z-10 font-display text-4xl font-black text-on-surface tracking-tighter pl-4">Our Premium Portfolio</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Brand A -->
+<div class="md:col-span-7 bg-surface-container-low rounded-xl p-12 hover:bg-surface-container transition-colors group">
+<div class="flex flex-col h-full justify-between">
+<div>
+<div class="w-16 h-16 bg-primary-container/10 rounded-lg flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">token</span>
+</div>
+<h3 class="font-display text-3xl font-bold mb-4">Brand Alpha</h3>
+<p class="text-on-surface-variant text-lg max-w-md">Luxury lifestyle curation and high-end retail management focusing on the European market.</p>
+</div>
+<div class="mt-12 overflow-hidden rounded-xl h-64">
+<img alt="Luxury Interior" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="ultra-modern minimalist luxury retail interior with high ceilings, soft warm lighting, and burgundy accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMgzsv0mETqZ-fXs401DOuJC2tn9RhQM2qfZluTAsBGiGSfOOrv5XyVqmtGvtm9uWiXT8n1b1c7YmN8sRUFMjfrJwpZsC0PUWYJauj_NV2AayAkR-fLS7I6Z69rCwowAjHSdYqOw_4VMwZpwY8TxW0klcmTYNTCZBtFgLaXCQQFbqnRBpzv-wzjT5JBaYGOFb_JV1QqRI4j7p5oaZAnC2NV8MZ39M2URQfymr-FJcxXFhOpodj3k_GJxlXzZThl8rHVNii2UBUXlE"/>
+</div>
+</div>
+</div>
+<!-- Brand B -->
+<div class="md:col-span-5 bg-surface-container-highest rounded-xl p-12 hover:bg-surface-container transition-colors group">
+<div class="w-16 h-16 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-secondary text-4xl" data-weight="fill">diamond</span>
+</div>
+<h3 class="font-display text-3xl font-bold mb-4">Brand Beta</h3>
+<p class="text-on-surface-variant text-lg">Bespoke financial advisory and investment management for sovereign wealth entities.</p>
+<div class="mt-20 flex justify-end">
+<span class="material-symbols-outlined text-8xl opacity-5 group-hover:opacity-10 transition-opacity">trending_up</span>
+</div>
+</div>
+<!-- Brand C -->
+<div class="md:col-span-5 bg-tertiary-fixed rounded-xl p-12 hover:bg-tertiary-fixed-dim transition-colors group relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-display text-3xl font-bold mb-4">Brand Gamma</h3>
+<p class="text-on-tertiary-fixed-variant text-lg">Next-generation technological infrastructure for global logistics and supply chain optimization.</p>
+</div>
+<img alt="Tech Abstract" class="absolute inset-0 w-full h-full object-cover opacity-20" data-alt="abstract technological nodes and connections with a deep charcoal and gold color palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJWPrvmeikYzK3bqwQWttk-SF9Ef6LV4C0zM_m05Fwlqeqe7aRRWwiqD06ARgCD1Xb6PExG5tKGdMIMDCqbNTxKSJVv4G_mmmFoxQTzzUpD6cK6WiArszDUoViU6T40kaaG2ut-O3esbnDnPPZwR73a7-saWBuMzf2Wz1_laC9ItjX5-c2Kl_EEYXSt2DWUC2vZGNVjlZ1wwqi5maIdoqliPYdNkWQLkZhXgE8N8lZoNYzUMGOFH_vr3bUZG7IJ7dvLm5QsOjwPa0"/>
+</div>
+<!-- Brand D -->
+<div class="md:col-span-7 bg-surface-container-high rounded-xl p-12 hover:bg-surface-container-highest transition-colors group border border-outline-variant/10">
+<div class="flex gap-12 items-center">
+<div class="flex-1">
+<h3 class="font-display text-3xl font-bold mb-4">Brand Delta</h3>
+<p class="text-on-surface-variant text-lg">Sustainability-focused architectural planning and urban development initiatives.</p>
+<button class="mt-8 text-primary font-bold text-sm uppercase tracking-widest flex items-center gap-2">
+                                Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="hidden lg:block w-48 h-48 bg-white/50 backdrop-blur rounded-full flex items-center justify-center border border-white/20">
+<span class="material-symbols-outlined text-6xl text-secondary">architecture</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Management Expertise -->
+<section class="py-32 px-8 lg:px-24 bg-surface-container-low">
+<div class="flex flex-col lg:flex-row gap-20">
+<div class="lg:w-1/3">
+<div class="sticky top-32">
+<div class="perspective-header-bg !w-full !-left-4"></div>
+<h2 class="relative z-10 font-display text-5xl font-extrabold text-on-surface tracking-tighter mb-8 leading-tight">Mastering the <br/>Art of Management</h2>
+<p class="text-on-surface-variant text-lg mb-12">We don't just manage; we cultivate environments where brands reach their ultimate potential through meticulous operational discipline.</p>
+<div class="flex flex-col gap-4">
+<div class="h-1 w-24 bg-primary"></div>
+<div class="h-1 w-12 bg-secondary"></div>
+</div>
+</div>
+</div>
+<div class="lg:w-2/3 space-y-12">
+<div class="bg-surface rounded-xl p-8 border border-outline-variant/10 flex gap-8 items-start hover:translate-x-2 transition-transform">
+<div class="text-4xl font-headline font-black text-secondary/20">01</div>
+<div>
+<h4 class="font-headline text-2xl font-bold mb-4">Strategic Planning</h4>
+<p class="text-on-surface-variant leading-relaxed text-lg">Architecting long-term visions with precision-engineered roadmaps. We identify market asymmetries and capitalize on emerging global trends.</p>
+</div>
+</div>
+<div class="bg-surface rounded-xl p-8 border border-outline-variant/10 flex gap-8 items-start hover:translate-x-2 transition-transform">
+<div class="text-4xl font-headline font-black text-secondary/20">02</div>
+<div>
+<h4 class="font-headline text-2xl font-bold mb-4">Operational Excellence</h4>
+<p class="text-on-surface-variant leading-relaxed text-lg">Refining core processes to peak efficiency. Our methodology combines lean principles with high-touch executive oversight.</p>
+</div>
+</div>
+<div class="bg-surface rounded-xl p-8 border border-outline-variant/10 flex gap-8 items-start hover:translate-x-2 transition-transform">
+<div class="text-4xl font-headline font-black text-secondary/20">03</div>
+<div>
+<h4 class="font-headline text-2xl font-bold mb-4">Brand Development</h4>
+<p class="text-on-surface-variant leading-relaxed text-lg">Transforming identities into legacies. We nurture brand equity through consistent narrative weaving and prestige positioning.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Network Section -->
+<section class="py-32 overflow-hidden relative">
+<div class="px-8 lg:px-24 mb-16 text-center max-w-3xl mx-auto">
+<h2 class="font-display text-4xl font-black mb-6">A Network Without Borders</h2>
+<p class="text-on-surface-variant text-lg">Connecting institutional capital with innovative ventures across four continents. Our reach is global, our impact is local.</p>
+</div>
+<div class="relative w-full h-[600px] bg-surface-container flex items-center justify-center">
+<img alt="Global Network Map" class="w-full h-full object-cover opacity-60 grayscale" data-alt="a minimalist stylized global map with golden light points indicating major financial hubs and networking lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP1J1i9-X-Eg_UNw10GECXr2XFQRiHNByqTIFyoS8i1W2fFQr8w2-T-FygSmM3-9h_D2d8AflIVnLla300RP8a1CHSw0XkWOmLGm4EhA_6EA3oF-WIpBvMEV1cauoBYx8tsBksje8HW5OCcRFSgu8ra7SG5ua1ozX7X0Y-A3JiD20zzZAp_7UKXTXzEqPQjaWCAJGVqKTGWMzmGntMEyDyg7cdeLBvxEz3M0lJgDXAaBGkSqAgFgoZ9vjH6s4PRvecVDs3RUuyaC0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface"></div>
+<div class="absolute top-1/4 left-1/4 bg-white/90 backdrop-blur p-6 rounded-xl shadow-2xl border border-secondary/20">
+<div class="text-secondary font-bold text-xl">Singapore</div>
+<div class="text-xs font-display tracking-widest text-on-surface-variant uppercase">Strategic Hub</div>
+</div>
+<div class="absolute bottom-1/3 right-1/4 bg-white/90 backdrop-blur p-6 rounded-xl shadow-2xl border-primary/20">
+<div class="text-primary font-bold text-xl">Zurich</div>
+<div class="text-xs font-display tracking-widest text-on-surface-variant uppercase">Financial Core</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-32 px-8 lg:px-24">
+<div class="bg-tertiary text-on-tertiary rounded-3xl p-16 md:p-24 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary opacity-20 blur-[100px] -mr-48 -mt-48"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary opacity-20 blur-[100px] -ml-48 -mb-48"></div>
+<div class="relative z-10 max-w-xl">
+<h2 class="font-display text-5xl font-black mb-6 tracking-tighter">Ready to redefine <br/>your standard?</h2>
+<p class="text-gray-400 text-lg leading-relaxed">Join the exclusive network of brands managed by GASPOLL. Let's discuss your organization's trajectory toward excellence.</p>
+</div>
+<div class="relative z-10 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+<button class="bg-secondary-container text-on-secondary-container px-12 py-6 rounded-full font-headline font-black text-lg uppercase tracking-wider hover:bg-secondary-fixed transition-colors">
+                        Partner With Us
+                    </button>
+<button class="border border-outline-variant/30 text-white px-12 py-6 rounded-full font-headline font-black text-lg uppercase tracking-wider hover:bg-white/10 transition-colors">
+                        Contact Office
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#272626] dark:bg-black w-full relative bottom-0">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-12 py-16 w-full">
+<div class="flex flex-col gap-6">
+<div class="text-lg font-bold text-white uppercase tracking-tighter">GASPOLL</div>
+<p class="font-['Inter'] text-xs tracking-wide text-gray-400 max-w-xs">Global Authority in Strategic Portfolios and Operational Leadership Legacies. Leading the future of brand management.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-white font-bold text-sm uppercase tracking-widest mb-2">Corporate</span>
+<a class="text-gray-500 hover:text-[#fdc34d] transition-colors text-xs font-['Inter'] hover:translate-x-1 transition-transform" href="#">About Us</a>
+<a class="text-gray-500 hover:text-[#fdc34d] transition-colors text-xs font-['Inter'] hover:translate-x-1 transition-transform" href="#">Investor Relations</a>
+<a class="text-gray-500 hover:text-[#fdc34d] transition-colors text-xs font-['Inter'] hover:translate-x-1 transition-transform" href="#">Press Center</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-white font-bold text-sm uppercase tracking-widest mb-2">Legal</span>
+<a class="text-gray-500 hover:text-[#fdc34d] transition-colors text-xs font-['Inter'] hover:translate-x-1 transition-transform underline" href="#">Privacy Policy</a>
+<a class="text-gray-500 hover:text-[#fdc34d] transition-colors text-xs font-['Inter'] hover:translate-x-1 transition-transform" href="#">Terms of Service</a>
+<a class="text-gray-500 hover:text-[#fdc34d] transition-colors text-xs font-['Inter'] hover:translate-x-1 transition-transform" href="#">Compliance</a>
+</div>
+<div class="flex flex-col gap-6">
+<span class="text-white font-bold text-sm uppercase tracking-widest mb-2">Connect</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-white hover:text-[#fdc34d] cursor-pointer">language</span>
+<span class="material-symbols-outlined text-white hover:text-[#fdc34d] cursor-pointer">mail</span>
+<span class="material-symbols-outlined text-white hover:text-[#fdc34d] cursor-pointer">map</span>
+</div>
+<div class="mt-4">
+<p class="font-['Inter'] text-xs tracking-wide text-gray-400">© 2024 GASPOLL MANAGEMENT CENTER. All rights reserved.</p>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
