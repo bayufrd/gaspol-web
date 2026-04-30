@@ -342,6 +342,19 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
   const isJempolan = brand.key === "jempolan";
   const isSummaryBrand = isSambelColek || isSambelNyahti || isGreenBeans || isJempolan;
 
+  const docUi =
+    lang === "en"
+      ? {
+          kicker: "GMC Docs",
+          title: "Brand Profile",
+          desc: "Open each section to view the official document content."
+        }
+      : {
+          kicker: "Dokumen GMC",
+          title: "Profil Brand",
+          desc: "Buka setiap bagian untuk melihat sesuai dokumen."
+        };
+
   return (
     <>
       <main>
@@ -464,13 +477,13 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
             <div className="lg:col-span-8 space-y-6">
               {isSummaryBrand && brand.docTopics?.length ? (
                 isSambelColek ? (
-                  <SambelColekSummary logoSrc={brand.logo} docTopics={brand.docTopics} />
+                  <SambelColekSummary logoSrc={brand.logo} docTopics={brand.docTopics} showDocPanel={false} />
                 ) : isSambelNyahti ? (
-                  <SambelNyahtiSummary logoSrc={brand.logo} docTopics={brand.docTopics} />
+                  <SambelNyahtiSummary logoSrc={brand.logo} docTopics={brand.docTopics} showDocPanel={false} />
                 ) : isGreenBeans ? (
-                  <GreenBeansSummary logoSrc={brand.logo} docTopics={brand.docTopics} />
+                  <GreenBeansSummary logoSrc={brand.logo} docTopics={brand.docTopics} showDocPanel={false} />
                 ) : (
-                  <JempolanSummary logoSrc={brand.logo} docTopics={brand.docTopics} />
+                  <JempolanSummary logoSrc={brand.logo} docTopics={brand.docTopics} showDocPanel={false} />
                 )
               ) : (
                 (brand.sections ?? []).map((s) => (
@@ -492,6 +505,17 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
             </div>
           </div>
         </section>
+
+        {brand.docTopics?.length ? (
+          <section className="px-4 sm:px-8 lg:px-24 pb-16 sm:pb-20">
+            <BrandDocPanel
+              kicker={docUi.kicker}
+              title={docUi.title}
+              desc={docUi.desc}
+              topics={brand.docTopics}
+            />
+          </section>
+        ) : null}
       </main>
     </>
   );

@@ -6,10 +6,12 @@ import { useLang } from "@/components/useLang";
 
 export default function JempolanSummary({
   logoSrc,
-  docTopics
+  docTopics,
+  showDocPanel = true
 }: {
   logoSrc: string;
   docTopics: BrandDocTopic[];
+  showDocPanel?: boolean;
 }) {
   const { lang } = useLang("id");
 
@@ -218,8 +220,9 @@ export default function JempolanSummary({
         </div>
       </section>
 
-      <BrandDocPanel kicker={t.docKicker} title={t.docTitle} desc={t.docDesc} topics={docTopics} />
+      {showDocPanel ? (
+        <BrandDocPanel kicker={t.docKicker} title={t.docTitle} desc={t.docDesc} topics={docTopics} />
+      ) : null}
     </>
   );
 }
-
