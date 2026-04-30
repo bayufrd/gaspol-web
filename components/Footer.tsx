@@ -33,8 +33,8 @@ export default function Footer({ lang }: { lang: "id" | "en" }) {
         };
 
   const mapsHref = "https://maps.app.goo.gl/wHth93J14wEcUyQt5";
-  const instagramHref = "https://instagram.com/";
-  const emailHref = "mailto:hello@dastrevas.com";
+  const instagramHref = "https://instagram.com/gaspoll.group";
+  const emailHref = "mailto:gaspollmanagementcenter@gmail.com";
 
   return (
     <footer className="mt-auto border-t border-outline-variant/25 dark:border-white/10 bg-[#272626] dark:bg-black text-white">
