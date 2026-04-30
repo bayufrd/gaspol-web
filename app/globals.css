@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .rt-page {
-  animation: rt-fade-up 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: transform, opacity;
+  animation: rt-fade 180ms ease-out;
+  will-change: opacity;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -13,14 +13,12 @@
   }
 }
 
-@keyframes rt-fade-up {
+@keyframes rt-fade {
   from {
     opacity: 0;
-    transform: translateY(6px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
