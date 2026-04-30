@@ -507,14 +507,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
         </section>
 
         {brand.docTopics?.length ? (
-          <section className="px-4 sm:px-8 lg:px-24 pb-16 sm:pb-20">
-            <BrandDocPanel
-              kicker={docUi.kicker}
-              title={docUi.title}
-              desc={docUi.desc}
-              topics={brand.docTopics}
-            />
-          </section>
+          <BrandDocPanel kicker={docUi.kicker} title={docUi.title} desc={docUi.desc} topics={brand.docTopics} />
         ) : null}
       </main>
     </>
