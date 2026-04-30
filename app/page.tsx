@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import ThemeToggle from "@/components/ThemeToggle";
 import InfoModal from "@/components/InfoModal";
 import { useEffect, useMemo, useState } from "react";
 
@@ -352,7 +351,6 @@ export default function Page() {
   const brands = useMemo(() => brandsByLang[lang], [lang]);
   const [topicKey, setTopicKey] = useState<string | null>(null);
   const activeTopic = useMemo(() => t.topics.find((x: any) => x.key === topicKey) ?? null, [t, topicKey]);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const officeLat = -7.772171;
   const officeLng = 110.405041;
   const mapsQuery = encodeURIComponent(`${officeLat},${officeLng}`);
@@ -374,122 +372,8 @@ export default function Page() {
           ))}
         </ul>
       </InfoModal>
-      <nav className="bg-white/80 dark:bg-[#272626]/80 backdrop-blur-lg fixed top-0 w-full z-50 shadow-sm dark:shadow-none bg-surface-container-low">
-        <div className="flex justify-between items-center px-4 sm:px-8 py-4 max-w-full mx-auto">
-          <div className="flex items-center gap-4">
-            <div className="dark:bg-white dark:rounded-xl dark:px-3 dark:py-2 dark:shadow-sm">
-              <Image
-                src="/icon/Gaspoll.png"
-                alt="GASPOLL Logo"
-                width={140}
-                height={32}
-                className="h-8 w-auto"
-                priority
-              />
-            </div>
-          </div>
-          <div className="lg:hidden flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen((v) => !v)}
-              className="h-10 w-10 rounded-full grid place-items-center border border-outline-variant/40 bg-white/60 dark:bg-[#272626]/60 backdrop-blur hover:bg-white/80 dark:hover:bg-[#272626]/80 transition-colors"
-              aria-label="Toggle menu"
-              title="Menu"
-            >
-              <span className="material-symbols-outlined text-on-surface dark:text-white text-[20px]">
-                {mobileMenuOpen ? "close" : "menu"}
-              </span>
-            </button>
-            <button
-              type="button"
-              onClick={() =>
-                setLang((v) => {
-                  const next = v === "id" ? "en" : "id";
-                  localStorage.setItem("lang", next);
-                  document.cookie = `lang=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
-                  return next;
-                })
-              }
-              className="h-10 px-4 rounded-full border border-outline-variant/40 bg-white/60 dark:bg-[#272626]/60 backdrop-blur hover:bg-white/80 dark:hover:bg-[#272626]/80 transition-colors text-xs font-headline font-black tracking-widest"
-              aria-label="Toggle language"
-              title="Toggle language"
-            >
-              {t.langLabel}
-            </button>
-            <ThemeToggle />
-          </div>
-          <div className="hidden lg:flex items-center gap-12 text-sm font-headline uppercase tracking-tight">
-            <a className="text-secondary font-bold border-b-2 border-secondary pb-1" href="#brands">
-              {t.nav.brands}
-            </a>
-            <a className="text-on-surface-variant dark:text-gray-300 hover:text-on-surface dark:hover:text-white transition-colors" href="#about">
-              {t.nav.about}
-            </a>
-            <a className="text-on-surface-variant dark:text-gray-300 hover:text-on-surface dark:hover:text-white transition-colors" href="#vision">
-              {t.nav.vision}
-            </a>
-            <a className="text-on-surface-variant dark:text-gray-300 hover:text-on-surface dark:hover:text-white transition-colors" href="#connect">
-              {t.nav.connect}
-            </a>
-          </div>
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="#connect"
-              className="bg-gradient-to-r from-secondary-container via-secondary-fixed-dim to-secondary px-5 py-2 rounded-full font-headline font-black text-xs uppercase tracking-wider hover:opacity-95 transition-opacity text-white shadow-sm"
-            >
-              {t.ctaTop}
-            </a>
-            <button
-              type="button"
-              onClick={() =>
-                setLang((v) => {
-                  const next = v === "id" ? "en" : "id";
-                  localStorage.setItem("lang", next);
-                  document.cookie = `lang=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
-                  return next;
-                })
-              }
-              className="h-10 px-4 rounded-full border border-outline-variant/40 bg-white/60 dark:bg-[#272626]/60 backdrop-blur hover:bg-white/80 dark:hover:bg-[#272626]/80 transition-colors text-xs font-headline font-black tracking-widest"
-              aria-label="Toggle language"
-              title="Toggle language"
-            >
-              {t.langLabel}
-            </button>
-            <ThemeToggle />
-          </div>
-        </div>
-        {mobileMenuOpen ? (
-          <div className="lg:hidden px-4 sm:px-8 pb-4 animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="bg-white/90 dark:bg-[#1c1c1c]/90 backdrop-blur rounded-2xl border border-outline-variant/25 dark:border-white/10 p-4">
-              {[
-                { href: "#brands", label: t.nav.brands },
-                { href: "#about", label: t.nav.about },
-                { href: "#vision", label: t.nav.vision },
-                { href: "#connect", label: t.nav.connect }
-              ].map((x) => (
-                <a
-                  key={x.href}
-                  href={x.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between py-3 text-sm font-headline font-black uppercase tracking-widest text-on-surface dark:text-white"
-                >
-                  <span>{x.label}</span>
-                  <span className="material-symbols-outlined text-secondary">arrow_outward</span>
-                </a>
-              ))}
-              <a
-                href="#connect"
-                onClick={() => setMobileMenuOpen(false)}
-                className="mt-3 block text-center bg-gradient-to-r from-secondary-container via-secondary-fixed-dim to-secondary px-5 py-3 rounded-full font-headline font-black text-xs uppercase tracking-wider hover:opacity-95 transition-opacity text-white shadow-sm"
-              >
-                {t.ctaTop}
-              </a>
-            </div>
-          </div>
-        ) : null}
-      </nav>
 
-      <main className="pt-28">
+      <main>
         <section className="px-4 sm:px-8 lg:px-24 py-14 sm:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>

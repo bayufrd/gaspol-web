@@ -3,6 +3,7 @@ import "./globals.css";
 import Providers from "./providers";
 import { Inter, Manrope } from "next/font/google";
 import { getServerLang } from "@/lib/lang.server";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
@@ -26,7 +27,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
       </head>
       <body className={`${inter.variable} ${manrope.variable}`}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          <div className="pt-24">{children}</div>
+        </Providers>
       </body>
     </html>
   );

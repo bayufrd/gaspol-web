@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BrandDocPanel, { type BrandDocTopic } from "@/components/BrandDocPanel";
-import TopActions from "@/components/TopActions";
 import SambelColekSummary from "@/components/brand/SambelColekSummary";
 import SambelNyahtiSummary from "@/components/brand/SambelNyahtiSummary";
 import GreenBeansSummary from "@/components/brand/GreenBeansSummary";
@@ -345,40 +344,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
 
   return (
     <>
-      <nav className="bg-white/80 dark:bg-[#272626]/80 backdrop-blur-lg fixed top-0 w-full z-50 shadow-sm dark:shadow-none bg-surface-container-low">
-        <div className="flex justify-between items-center px-4 sm:px-8 py-4 max-w-full mx-auto">
-          <div className="flex items-center gap-3">
-            <Link
-              href="/#brands"
-              className="h-10 w-10 rounded-full grid place-items-center border border-outline-variant/40 bg-white/60 dark:bg-[#272626]/60 backdrop-blur hover:bg-white/80 dark:hover:bg-[#272626]/80 transition-colors"
-              aria-label={ui.back}
-              title={ui.back}
-            >
-              <span className="material-symbols-outlined text-on-surface dark:text-white text-[20px]">
-                arrow_back
-              </span>
-            </Link>
-            <div className="dark:bg-white dark:rounded-xl dark:px-3 dark:py-2 dark:shadow-sm">
-              <Image src="/icon/Gaspoll.png" alt="GASPOLL Logo" width={140} height={32} className="h-8 w-auto" priority />
-            </div>
-          </div>
-          <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="/#brands"
-              className="text-sm font-headline font-black uppercase tracking-widest text-on-surface-variant dark:text-gray-300 hover:text-on-surface dark:hover:text-white transition-colors"
-            >
-              {ui.brands}
-            </Link>
-            <span className="text-on-surface-variant/40">/</span>
-            <span className="text-sm font-headline font-black uppercase tracking-widest text-on-surface dark:text-white">
-              {brandName}
-            </span>
-          </div>
-          <TopActions />
-        </div>
-      </nav>
-
-      <main className="pt-28">
+      <main>
         <section className="relative min-h-[520px] sm:min-h-[640px] flex items-center">
           <div className="absolute inset-0 z-0">
             <Image src={brand.heroImage} alt={brandName} fill className="object-cover" priority />
@@ -389,6 +355,21 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
               <span className="font-headline font-bold text-secondary-fixed uppercase tracking-[0.35em] text-xs sm:text-sm mb-6 block">
                 {lang === "en" ? "Managed Brand" : "Brand Di Bawah Manajemen"}
               </span>
+              <div className="flex items-center gap-3 mb-6">
+                <Link
+                  href="/#brands"
+                  className="h-10 w-10 rounded-full grid place-items-center border border-white/25 bg-white/10 backdrop-blur hover:bg-white/15 transition-colors"
+                  aria-label={ui.back}
+                  title={ui.back}
+                >
+                  <span className="material-symbols-outlined text-secondary-fixed text-[20px]">arrow_back</span>
+                </Link>
+                <div className="hidden sm:flex items-center gap-3 text-xs font-headline font-black uppercase tracking-widest text-white/80">
+                  <span>{ui.brands}</span>
+                  <span className="text-white/30">/</span>
+                  <span className="text-white">{brandName}</span>
+                </div>
+              </div>
               <div className="flex items-start gap-5">
                 <div className="h-16 w-16 rounded-2xl bg-white grid place-items-center border border-white/30 shadow-sm">
                   <Image src={brand.logo} alt={`${brandName} logo`} width={64} height={64} className="h-12 w-12 object-contain" />
