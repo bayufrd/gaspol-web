@@ -54,6 +54,22 @@ export default function Footer({ lang }: { lang: "id" | "en" }) {
             <Link className="text-white/60 hover:text-[#fdc34d] transition-colors text-xs hover:translate-x-1 transition-transform" href="/#brands">
               {t.links.brands}
             </Link>
+            <div className="pl-4 -mt-2 flex flex-col gap-2">
+              {[
+                { href: "/brand/sambel-colek", label: "Sambel Colek" },
+                { href: "/brand/sambel-e-nyahti", label: "Sambel'e Nyah Ti" },
+                { href: "/brand/jempolan", label: "Jempolan" },
+                { href: "/brand/green-beans", label: "Green Beans" }
+              ].map((x) => (
+                <Link
+                  key={x.href}
+                  className="text-white/45 hover:text-[#fdc34d] transition-colors text-[11px] tracking-widest uppercase hover:translate-x-1 transition-transform"
+                  href={x.href}
+                >
+                  {x.label}
+                </Link>
+              ))}
+            </div>
             <Link className="text-white/60 hover:text-[#fdc34d] transition-colors text-xs hover:translate-x-1 transition-transform" href="/#about">
               {t.links.about}
             </Link>
