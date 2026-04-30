@@ -359,7 +359,14 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
       <main>
         <section className="relative min-h-[520px] sm:min-h-[640px] flex items-center">
           <div className="absolute inset-0 z-0">
-            <Image src={brand.heroImage} alt={brandName} fill className="object-cover" priority />
+            <Image
+              src={brand.heroImage}
+              alt={brandName}
+              fill
+              className="object-cover"
+              sizes="100vw"
+              loading="lazy"
+            />
             <div className="absolute inset-0 bg-primary/60 backdrop-multiply"></div>
           </div>
           <div className="relative z-10 w-full px-4 sm:px-8 lg:px-24">
