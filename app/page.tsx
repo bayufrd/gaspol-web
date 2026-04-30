@@ -3,7 +3,7 @@
 import Image from "next/image";
 import ThemeToggle from "@/components/ThemeToggle";
 import InfoModal from "@/components/InfoModal";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type Lang = "id" | "en";
 
@@ -341,11 +341,13 @@ const brandsByLang: Record<
 };
 
 export default function Page() {
-  const [lang, setLang] = useState<Lang>(() => {
-    if (typeof window === "undefined") return "id";
+  const [lang, setLang] = useState<Lang>("id");
+  useEffect(() => {
     const saved = (localStorage.getItem("lang") as Lang | null) ?? "id";
-    return saved === "en" ? "en" : "id";
-  });
+    const next = saved === "en" ? "en" : "id";
+    setLang(next);
+    document.cookie = `lang=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
+  }, []);
   const t = useMemo(() => copy[lang], [lang]);
   const brands = useMemo(() => brandsByLang[lang], [lang]);
   const [topicKey, setTopicKey] = useState<string | null>(null);
@@ -404,6 +406,7 @@ export default function Page() {
                 setLang((v) => {
                   const next = v === "id" ? "en" : "id";
                   localStorage.setItem("lang", next);
+                  document.cookie = `lang=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
                   return next;
                 })
               }
@@ -442,6 +445,7 @@ export default function Page() {
                 setLang((v) => {
                   const next = v === "id" ? "en" : "id";
                   localStorage.setItem("lang", next);
+                  document.cookie = `lang=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
                   return next;
                 })
               }

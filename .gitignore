@@ -21,3 +21,5 @@ Thumbs.db
 .vscode/
 .idea/
 
+# TypeScript build info
+tsconfig.tsbuildinfo

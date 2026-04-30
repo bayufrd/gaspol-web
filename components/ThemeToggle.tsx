@@ -1,10 +1,15 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const next = theme === "dark" ? "light" : "dark";
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const isDark = resolvedTheme === "dark";
+  const next = isDark ? "light" : "dark";
 
   return (
     <button
@@ -14,10 +19,12 @@ export default function ThemeToggle() {
       aria-label="Toggle theme"
       title="Toggle theme"
     >
-      <span className="material-symbols-outlined text-on-surface dark:text-white text-[20px]">
-        {theme === "dark" ? "dark_mode" : "light_mode"}
+      <span
+        suppressHydrationWarning
+        className="material-symbols-outlined text-on-surface dark:text-white text-[20px]"
+      >
+        {mounted ? (isDark ? "dark_mode" : "light_mode") : "light_mode"}
       </span>
     </button>
   );
 }
-
