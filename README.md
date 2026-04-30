@@ -127,5 +127,3 @@ Menjadi perusahaan bidang Manajemen Bisnis yang terus berkembang dan maju, mense
 - Footer (legal, alamat, kontak)
 
 ---
-
-Next step: setelah README ini OK, lanjut bikin roadmap phase-by-phase implementasi landing page menggunakan stack di atas.
