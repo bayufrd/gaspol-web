@@ -4,6 +4,7 @@ import Providers from "./providers";
 import { Inter, Manrope } from "next/font/google";
 import { getServerLang } from "@/lib/lang.server";
 import Navbar from "@/components/Navbar";
+import RouteTransition from "@/components/RouteTransition";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
@@ -29,7 +30,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className={`${inter.variable} ${manrope.variable}`}>
         <Providers>
           <Navbar />
-          <div className="pt-24">{children}</div>
+          <RouteTransition>
+            <div className="pt-24">{children}</div>
+          </RouteTransition>
         </Providers>
       </body>
     </html>
