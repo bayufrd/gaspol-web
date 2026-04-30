@@ -28,7 +28,7 @@ const BRAND_BY_SLUG: Record<
     tagline: "Murah, Kenyang, Pedas, Puas",
     logo: "/icon/sambelcolek.png",
     heroImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBJEN8WpwzvzTZSI6KaAbv4nTU37zifwW0rmnPbN5jDvwKtd_GzouUHfA4hnrfX0tUn047hjSgApD0DoOIDBU85x1hQA8Z93zyRcn75CkEXZUJJzTaCqb8FKyFuL2Fv-exKfsD9Y2RYzqLThPHLvgFFTXyksmInEDrO5YK8zeiIWAyq21538Wt-_fQDx-hNoC4EunQroCEaMNdMi2vAFGsngQ9BpSLyBxHortchGqcEwYwv4dUSh2bpaKL09Avx6t6dhGjl-MqVx8o",
+      "/hero/sambelcolek.jpg",
     docTopics: [
       {
         key: "filosofi",
@@ -93,7 +93,7 @@ const BRAND_BY_SLUG: Record<
     tagline: "JUwara PueDEZnya",
     logo: "/icon/sambelenyahti.png",
     heroImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDC58i8ukiK23Df18wqvi3zkbDiF2LJz2ISBxnXCHVgStZJK8SvXEZp50IohUBysS5J20ajKdUnzQ0OJl-H4fuJWW-31JzhRk2rCRbNwqZLbA3wJ665Uvb-5PZm3HZ_k7TFSyIXySer9yL8XcJZlTsmAic2i4pqS9JdNQyh_kNpMEkHZw30krSWqUvEhE9NjWfLDmqSGmoXd4-vnzX2fsrgO99o7vj69RAMZZpbK3ChAdEULesw-uo2YaStdMni5PF9_XEFkqhMb-0",
+      "/hero/sambelenyahti.jpg",
     docTopics: [
       {
         key: "filosofi",
@@ -166,7 +166,7 @@ const BRAND_BY_SLUG: Record<
     tagline: "Sip – Relax - Repeat",
     logo: "/icon/greenbeans.png",
     heroImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDP1J1i9-X-Eg_UNw10GECXr2XFQRiHNByqTIFyoS8i1W2fFQr8w2-T-FygSmM3-9h_D2d8AflIVnLla300RP8a1CHSw0XkWOmLGm4EhA_6EA3oF-WIpBvMEV1cauoBYx8tsBksje8HW5OCcRFSgu8ra7SG5ua1ozX7X0Y-A3JiD20zzZAp_7UKXTXzEqPQjaWCAJGVqKTGWMzmGntMEyDyg7cdeLBvxEz3M0lJgDXAaBGkSqAgFgoZ9vjH6s4PRvecVDs3RUuyaC0",
+      "/hero/greenbeans.jpg",
     docTopics: [
       {
         key: "tentang",
@@ -238,8 +238,7 @@ const BRAND_BY_SLUG: Record<
     name: "Jempolan Coffee & Eatery",
     tagline: "Four Senses, One Comfort",
     logo: "/icon/jempolan.png",
-    heroImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuClwfpDBjpEoU95xjT55YkiycpfdzCQw98M_dvO-gJnY16aCZVFvsOjyHo9fH9ibDbYn0QsLuUZ7X_O4390U5jrsbEg-V2uvZWrIw3_o48bjY2dKhad-b6jDYjrsyq1H1CwxV6aQOpGr7LDtH4zsNqW9IsrgdUkxSh3S-Z6F4YO9ee88jXqeo7OGcgR_6KygtWZBUlUhdk8ESATvDy3JWFavb1DhczZjSAk2c3vSljCRBsgwNLxx2bK8KNOTXX299qVWcQ2a6yxABA",
+    heroImage: "/hero/jempolan.jpg",
     docTopics: [
       {
         key: "rumah-rasa",

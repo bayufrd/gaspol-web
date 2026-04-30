@@ -657,55 +657,6 @@ export default function Page() {
           </div>
         </section>
       </main>
-
-      <footer className="bg-[#272626] dark:bg-black w-full relative bottom-0">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 sm:px-12 py-14 sm:py-16 w-full">
-          <div className="flex flex-col gap-6">
-            <div className="inline-flex items-center gap-4 bg-white rounded-2xl px-5 py-3 border border-outline-variant/25 shadow-sm">
-              <Image src="/icon/Gaspoll.png" alt="GASPOLL Logo" width={220} height={56} className="h-14 w-auto" />
-            </div>
-            <div className="text-lg font-bold text-white uppercase tracking-tighter">PT. GASPOLL MANAGEMENT CENTER</div>
-            <p className="text-xs tracking-wide text-gray-400 max-w-xs">
-              {t.footerTagline}
-            </p>
-          </div>
-          <div className="flex flex-col gap-4">
-            <span className="text-white font-bold text-sm uppercase tracking-widest mb-2">{t.footerCorporate}</span>
-            <a className="text-gray-500 hover:text-[#fdc34d] transition-colors text-xs hover:translate-x-1 transition-transform" href="#brands">
-              {t.footerLinksCorporate[0]}
-            </a>
-            <a className="text-gray-500 hover:text-[#fdc34d] transition-colors text-xs hover:translate-x-1 transition-transform" href="#about">
-              {t.footerLinksCorporate[1]}
-            </a>
-            <a className="text-gray-500 hover:text-[#fdc34d] transition-colors text-xs hover:translate-x-1 transition-transform" href="#vision">
-              {t.footerLinksCorporate[2]}
-            </a>
-            <a className="text-gray-500 hover:text-[#fdc34d] transition-colors text-xs hover:translate-x-1 transition-transform" href="#connect">
-              {t.footerLinksCorporate[3]}
-            </a>
-          </div>
-          <div className="flex flex-col gap-6">
-            <span className="text-white font-bold text-sm uppercase tracking-widest mb-2">{t.footerConnect}</span>
-            <p className="text-xs tracking-wide text-gray-400">{t.officeAddress}</p>
-            <a
-              className="text-gray-500 hover:text-[#fdc34d] transition-colors text-xs hover:translate-x-1 transition-transform"
-              href={mapsOpenHref}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t.mapsOpen}
-            </a>
-            <div className="flex gap-4">
-              <span className="material-symbols-outlined text-white hover:text-[#fdc34d] cursor-pointer">language</span>
-              <span className="material-symbols-outlined text-white hover:text-[#fdc34d] cursor-pointer">mail</span>
-              <span className="material-symbols-outlined text-white hover:text-[#fdc34d] cursor-pointer">map</span>
-            </div>
-            <div className="mt-4">
-              <p className="text-xs tracking-wide text-gray-400">{t.copyright}</p>
-            </div>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }
